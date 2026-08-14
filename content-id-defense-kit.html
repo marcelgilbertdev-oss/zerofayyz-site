@@ -101,5 +101,16 @@ license date.</div>
     processes change — verify against current official documentation before relying on any of it.</div>
   </footer>
 </div>
+<script>
+/* Carry the campaign tag through to the waitlist page so signups stay attributed. */
+(function(){
+  var s=location.search; if(!s) return;
+  document.querySelectorAll('a[href*=".html"]').forEach(function(a){
+    var h=a.getAttribute("href"); if(/^https?:/i.test(h)||h.indexOf("?")>-1) return;
+    var i=h.indexOf("#");
+    a.setAttribute("href", i<0 ? h+s : h.slice(0,i)+s+h.slice(i));
+  });
+})();
+</script>
 </body>
 </html>

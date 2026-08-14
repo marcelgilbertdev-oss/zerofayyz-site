@@ -187,6 +187,27 @@
 </div>
 
 <script>
+/* Signup attribution: remember where this visitor came from and hand it to Tally.
+   First touch wins — a visitor who arrives from Reddit, reads a guide, then signs up
+   two days later is still credited to Reddit. Requires a hidden field named "ref"
+   on the Tally form; harmless if absent. */
+(function(){
+  var K="zf_ref", q=new URLSearchParams(location.search);
+  var ref=q.get("ref")||q.get("utm_source");
+  if(!ref){ try{ ref=localStorage.getItem(K); }catch(e){} }
+  if(!ref&&document.referrer){
+    try{ var h=new URL(document.referrer).hostname.replace(/^www\./,"");
+         if(h&&h!==location.hostname) ref=h; }catch(e){}
+  }
+  ref=(ref||"direct").toString().slice(0,60);
+  try{ if(!localStorage.getItem(K)) localStorage.setItem(K,ref); }catch(e){}
+  var f=document.querySelector("iframe[data-tally-src]");
+  if(f) f.dataset.tallySrc+="&ref="+encodeURIComponent(ref);
+  document.querySelectorAll('a[href$=".html"]').forEach(function(a){
+    if(location.search) a.href+=location.search;
+  });
+})();
+
 /* Tally embed loader (official snippet) */
 var d=document,w="https://tally.so/widgets/embed.js",v=function(){
   "undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc});
