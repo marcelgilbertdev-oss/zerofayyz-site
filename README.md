@@ -1,6 +1,19 @@
-# ZEROFAYYZ — free guides for AI filmmakers
+# ZEROFAYYZ
 
-Source for **[zerofayyz.com](https://zerofayyz.com)**. Three free guides, no signup, no email gate.
+Source for **[zerofayyz.com](https://zerofayyz.com)** — a digital production studio.
+
+**Game-ready 3D** — characters, environments and props for Unity, Unreal and Blender.
+Rigged, animated, LOD'd, and verified in the target engine.
+**AI video and animated shorts** — produced end to end, right model per shot, narration included.
+**Custom tools and interfaces** — internal tools, dashboards, working prototypes.
+
+Project enquiries: **marcel.gilbert.dev@gmail.com**
+
+---
+
+## The free guides
+
+Three of them, no signup, no email gate. Written because they didn't exist and we needed them.
 
 ## [The AI Video Prompting Guide (2026)](https://zerofayyz.com/ai-video-prompting-guide.html)
 

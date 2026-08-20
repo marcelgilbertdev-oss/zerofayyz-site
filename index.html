@@ -3,222 +3,192 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ZEROFAYYZ RightsVault — Know what you can ship before you ship it</title>
-<meta name="description" content="Track every asset, license, receipt and AI disclosure behind your videos, games and digital products — then export the proof when a platform, claim or client asks. Local-first. One-time purchase.">
+<title>ZEROFAYYZ — game-ready 3D, AI video, and custom tools</title>
+<meta name="description" content="Game-ready 3D characters, environments and props for Unity, Unreal and Blender. AI-generated video and animated shorts. Custom tools and interfaces. Plus free guides for AI creators.">
 <link rel="canonical" href="https://zerofayyz.com/">
-<meta property="og:title" content="ZEROFAYYZ RightsVault — Know what you can ship before you ship it">
-<meta property="og:description" content="Every asset, license, receipt and AI disclosure behind your work — organized, audited, exportable. Local-first. Waitlist members get launch pricing.">
+<meta property="og:title" content="ZEROFAYYZ — game-ready 3D, AI video, and custom tools">
+<meta property="og:description" content="Rigged characters and environment assets that arrive working in your engine. AI video production. Custom tools. Free guides for AI creators.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zerofayyz.com/">
 <meta property="og:image" content="https://zerofayyz.com/social.jpg">
+<meta property="og:site_name" content="ZEROFAYYZ">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="style.css">
+<style>
+  .lanes{display:grid; gap:20px; margin-top:30px}
+  .lane{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+        padding:26px 28px; position:relative; overflow:hidden}
+  .lane::before{content:""; position:absolute; inset:0 0 auto 0; height:2px; background:var(--grad); opacity:.75}
+  .lane h3{margin:0 0 6px; font-size:20px; letter-spacing:-.01em}
+  .lane .for{color:var(--cyan); font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; margin:0 0 14px}
+  .lane p{color:#cfd6e6; margin:0 0 14px; max-width:68ch}
+  .lane ul{margin:0; padding-left:20px; color:var(--muted); font-size:14.5px; max-width:68ch}
+  .lane li{margin:5px 0}
+  .lane .proof{margin-top:16px; padding-top:14px; border-top:1px solid var(--line-soft);
+               color:var(--muted); font-size:13.5px; max-width:70ch}
+  .lane .proof b{color:var(--text)}
+  .guides{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-top:26px}
+  .guide{display:block; background:var(--panel-2); border:1px solid var(--line); border-radius:var(--radius);
+         padding:22px; text-decoration:none; transition:border-color .15s}
+  .guide:hover{border-color:var(--purple)}
+  .guide b{display:block; color:var(--text); font-size:16px; margin-bottom:7px; line-height:1.35}
+  .guide span{color:var(--muted); font-size:14px; display:block}
+  .contact{background:var(--panel); border:1px solid rgba(168,85,247,.3); border-radius:var(--radius);
+           padding:32px; box-shadow:0 20px 60px rgba(0,0,0,.45)}
+  .mail{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; word-break:break-all}
+  .tellme{margin:14px 0 24px; padding-left:22px; color:var(--muted); font-size:15px; max-width:64ch}
+  .tellme li{margin:6px 0}
+</style>
 </head>
 <body>
 
-<header>
-  <div class="wrap">
-    <img class="brand-logo" src="logo.png" alt="ZEROFAYYZ STUDIOS" width="560" height="373">
-  </div>
-</header>
+<header><div class="wrap">
+  <img class="brand-logo" src="logo.png" alt="ZEROFAYYZ STUDIOS" width="560" height="373">
+</div></header>
 
 <div class="wrap">
 
   <div class="hero">
-    <span class="eyebrow">RightsVault · coming soon</span>
-    <h1>Know what you can ship<br><span class="g">before you ship it.</span></h1>
+    <span class="eyebrow">Digital production studio</span>
+    <h1>3D that arrives working.<br><span class="g">Video that gets made.</span></h1>
     <p class="sub">
-      RightsVault tracks every asset, license, receipt and AI disclosure behind your
-      videos, games and digital products — then hands you the proof the moment a platform,
-      a claim, or a client asks for it.
+      Game-ready characters, environments and props for Unity, Unreal and Blender.
+      AI-generated video and animated shorts. Custom tools and interfaces for people
+      who need something that doesn't exist yet.
     </p>
-
-    <div class="offer">
-      <div class="price"><s>$59</s><b>$39</b> for waitlist members</div>
-      <div class="tag">One-time purchase · not a subscription · yours forever</div>
-    </div>
-
     <div class="cta-row">
-      <a class="btn" href="#waitlist">Claim launch pricing →</a>
-      <span class="btn-note">Plus three free guides today. No spam, unsubscribe anytime.</span>
+      <a class="btn" href="#contact">Start a project →</a>
+      <a class="btn-ghost" href="#guides">Free guides for AI creators →</a>
     </div>
   </div>
 
-  <section>
-    <h2>The problem isn't that you did anything wrong.</h2>
-    <p class="lede">It's that six months later, you can't <em>prove</em> you didn't.</p>
+  <section id="services">
+    <h2>What we do</h2>
+    <p class="lede">Three things, done properly, rather than everything done adequately.</p>
 
-    <div class="quote">
-      “A Content ID claim hit a video I had a valid license for.
-      It took me four hours to find the receipt.”
-      <span>— the reason this exists</span>
-    </div>
+    <div class="lanes">
 
-    <p class="lede">
-      Licensed music. Purchased 3D models. Stock footage. AI-generated backgrounds.
-      Fonts from a bundle three years ago. Every project you ship is built from dozens
-      of sources — and the proof for all of it is scattered across email, Downloads
-      folders, and memory. Then Steam asks about AI content, a claim lands on a
-      monetized video, or a client asks whether they can actually use what you delivered.
-    </p>
-  </section>
+      <div class="lane">
+        <h3>Game-ready 3D</h3>
+        <p class="for">Characters · environments · props</p>
+        <p>The part of asset production that eats weeks: taking a mesh and making it something
+        your engine actually accepts. Rigged, skinned, animated, LOD'd, and <em>verified in the
+        target engine</em> — not handed over as a blend file with a shrug.</p>
+        <ul>
+          <li>Character rigging and skinning, including retargeting onto an existing skeleton</li>
+          <li>Named animation sets — locomotion, idles, actions — exported and parity-checked in engine</li>
+          <li>Environment assets and props, built to your game's scale and budget</li>
+          <li>LOD generation and export prep for Unity, Unreal or raw Blender</li>
+          <li>Companion and gameplay systems built around the character you're shipping</li>
+        </ul>
+        <div class="proof"><b>Why the engine check matters:</b> FBX export can silently corrupt IK
+        bones, and Blender's own importer will re-open the broken file looking correct. We learned
+        that the hard way, so every rig now ships with a parity test that runs in the engine. That's
+        the difference between an asset and an asset that works.</div>
+      </div>
 
-  <section>
-    <h2>What a release audit looks like</h2>
-    <p class="lede">Point RightsVault at a project. It tells you what's cleared, what needs evidence, and what would block your upload.</p>
+      <div class="lane">
+        <h3>AI video &amp; animated shorts</h3>
+        <p class="for">Production · direction · narration</p>
+        <p>Short-form animated and AI-generated video, produced end to end. Model selection is most
+        of the craft — the same prompt gives you a usable shot on one model and garbage on another,
+        and knowing which is which is the job.</p>
+        <ul>
+          <li>Concept through finished cut, with characters that stay consistent across shots</li>
+          <li>Image-to-video pipelines using the right model per shot, not one tool for everything</li>
+          <li>Voice and narration, including custom voice creation</li>
+          <li>Assembly, grade and delivery in the format your platform wants</li>
+        </ul>
+        <div class="proof"><b>Public proof:</b> the model-by-model prompting reference on this site
+        is ours — <a href="ai-video-prompting-guide.html">~15 image and video models compared side by
+        side</a>, free and open. It's the working knowledge behind the production work.</div>
+      </div>
 
-    <div class="audit">
-      <div class="audit-head">
-        <span>Project: <b style="color:var(--text)">Episode 04 — Final Upload</b> · Destination: YouTube</span>
-        <span class="pill">1 blocker</span>
+      <div class="lane">
+        <h3>Custom tools &amp; interfaces</h3>
+        <p class="for">Internal tools · dashboards · prototypes</p>
+        <p>Software for the job nobody makes software for. Built to be used by the person who asked
+        for it, rather than to demo well and fall over in week two.</p>
+        <ul>
+          <li>Internal tools and dashboards that fit a workflow you already have</li>
+          <li>Web interfaces and working prototypes</li>
+          <li>Pipeline and automation tooling for studios and solo creators</li>
+          <li>AI integration into tools you already run</li>
+        </ul>
       </div>
-      <div>
-        <div class="row"><div class="ico ok">✓</div><div class="row-main">
-          <div class="row-file">background_music.wav</div>
-          <div class="row-note">Licensed track · receipt + terms snapshot attached</div></div></div>
 
-        <div class="row"><div class="ico ok">✓</div><div class="row-main">
-          <div class="row-file">stock_city_clip.mp4</div>
-          <div class="row-note">Stock library · purchase evidence attached</div></div></div>
-
-        <div class="row"><div class="ico warn">!</div><div class="row-main">
-          <div class="row-file">ai_scene_04.mp4</div>
-          <div class="row-note">AI-generated · realistic footage — platform disclosure review recommended</div></div></div>
-
-        <div class="row"><div class="ico warn">!</div><div class="row-main">
-          <div class="row-file">Orbitron.ttf</div>
-          <div class="row-note">Font license requires attribution — will be added to generated credits</div></div></div>
-
-        <div class="row"><div class="ico stop">✕</div><div class="row-main">
-          <div class="row-file">voiceover_clone.wav</div>
-          <div class="row-note">Cloned voice · no consent record attached — resolve before release</div></div></div>
-      </div>
-      <div class="audit-foot">
-        Ready to export: proof packet · description credits · AI disclosure notes · Content ID defense packet
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>What it does</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Release audits</h3>
-        <p>Scan a project and see exactly what's cleared, what's missing evidence, and what would block an upload or a store launch.</p>
-      </div>
-      <div class="card">
-        <h3>Proof packets</h3>
-        <p>Content ID dispute, Steam AI survey, client audit — export the evidence folder in one click, with the terms as they were on the day you licensed them.</p>
-      </div>
-      <div class="card">
-        <h3>Impact scans</h3>
-        <p>A license changes or expires. Instantly see every project and product it's inside — before it becomes a problem.</p>
-      </div>
-      <div class="card">
-        <h3>Your products, tracked</h3>
-        <p>Versions, what's inside each one, and the license you give your customers. Know what you sold, and what was in it.</p>
-      </div>
-      <div class="card">
-        <h3>AI provenance</h3>
-        <p>Which assets are AI-generated, from which tool, with what evidence — ready for platform disclosure requirements.</p>
-      </div>
-      <div class="card">
-        <h3>Local-first, always</h3>
-        <p>Everything stays on your machine. No cloud account required to use what you bought. Your evidence is yours.</p>
-      </div>
     </div>
   </section>
 
-  <section>
-    <h2>Built for people who ship</h2>
-    <ul class="who">
-      <li><b>YouTube &amp; video creators</b> — music, stock, AI footage, voice. Keep the proof before the claim, not after.</li>
-      <li><b>Indie game developers</b> — marketplace assets, fonts, plugins, AI textures, and the Steam content survey.</li>
-      <li><b>Digital product sellers</b> — know what's inside every version you sell, and what license you hand your customers.</li>
-      <li><b>Freelancers &amp; studios</b> — deliver client work with usage rights, attribution and audit proof attached.</li>
-    </ul>
+  <section id="guides">
+    <h2>Free guides</h2>
+    <p class="lede">Written because they didn't exist and we needed them. No signup, no email gate,
+    no upsell — read them, share them, feed them to your AI.</p>
+
+    <div class="guides">
+      <a class="guide" href="ai-video-prompting-guide.html">
+        <b>The AI Video Prompting Guide (2026)</b>
+        <span>Every major image and video model wants a different prompt. ~15 of them side by side —
+        syntax, audio and dialogue formats, camera control, and the specific failure each one
+        produces.</span>
+      </a>
+      <a class="guide" href="ai-disclosure-checklist.html">
+        <b>The YouTube AI Disclosure Checklist</b>
+        <span>When YouTube requires the "Altered content" label, what to record per video, and the
+        check to run before every upload.</span>
+      </a>
+      <a class="guide" href="content-id-defense-kit.html">
+        <b>The Content ID Defense Kit</b>
+        <span>The evidence worth capturing before a claim lands, and the calm sequence to follow
+        when one does.</span>
+      </a>
+    </div>
   </section>
 
-  <section id="waitlist">
-    <div class="signup">
-      <h2>Join the waitlist</h2>
+  <section id="products">
+    <h2>Products</h2>
+    <p class="lede">Tools and assets we're building to sell, rather than build to order. Nothing gets
+    listed here until it exists and works — no pre-orders, and no launch dates we can't keep. The
+    guides above are free and stay free.</p>
+  </section>
 
-      <div class="pricebox">
-        <div><s>$59</s> <b>$39</b></div>
-        <span>Waitlist members get launch pricing — one-time, no subscription, no per-month fee.</span>
+  <section id="contact">
+    <div class="contact">
+      <h2>Start a project</h2>
+      <p class="lede" style="margin-bottom:6px">Email is the fastest way in. It reaches a person, not
+      a queue, and you'll get a straight answer about whether it's a good fit — including when it
+      isn't.</p>
+
+      <p style="margin:0; color:var(--muted); font-size:14px">Useful to include:</p>
+      <ul class="tellme">
+        <li>What you're building, and what you need from us</li>
+        <li>Target engine or platform, if there is one</li>
+        <li>Rough timeline</li>
+        <li>Anything that already exists — references, meshes, a script, a project file</li>
+      </ul>
+
+      <div class="cta-row">
+        <a class="btn" href="mailto:marcel.gilbert.dev@gmail.com?subject=Project%20enquiry%20%E2%80%94%20ZEROFAYYZ&amp;body=What%20I%27m%20building%3A%0A%0AWhat%20I%20need%3A%0A%0AEngine%20%2F%20platform%3A%0A%0ATimeline%3A%0A%0AWhat%20already%20exists%3A%0A%0A">Email us →</a>
+        <span class="btn-note mail">marcel.gilbert.dev@gmail.com</span>
       </div>
-
-      <p class="lede" style="margin-bottom:14px">And the guides are free right now — no signup required to read them:</p>
-      <div class="gift">
-        <div><a href="ai-video-prompting-guide.html"><b>The AI Video Prompting Guide (2026)</b></a> — the prompt format ~15 image and video models each expect, side by side, with the failure fixes.</div>
-        <div><a href="ai-disclosure-checklist.html"><b>The YouTube AI Disclosure Checklist (2026)</b></a> — when you must disclose, what to record, and the upload-day check.</div>
-        <div><a href="content-id-defense-kit.html"><b>The Content ID Defense Kit</b></a> — the evidence to capture <em>before</em> a claim, and the calm sequence for when one lands.</div>
-      </div>
-
-      <div class="honest">
-        <h3>Straight talk: this isn't built yet.</h3>
-        <p>RightsVault is being <strong>validated, not pre-sold</strong>. I'm gathering a waitlist to find out
-        whether enough creators genuinely need this before spending months building it. <strong>No payment is
-        taken and no card is required.</strong></p>
-        <p>If enough people sign up, it gets built — and you get launch pricing. If not enough do, I'll email
-        you and say so plainly rather than going quiet. Either way you'll hear from me, and either way the two
-        guides above stay yours.</p>
-        <p style="color:var(--muted)">Your signup is a vote on whether this exists.</p>
-      </div>
-
-      <iframe data-tally-src="https://tally.so/embed/lb2ZKX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-              loading="lazy" width="100%" height="340" frameborder="0" marginheight="0" marginwidth="0"
-              title="ZEROFAYYZ RightsVault waitlist"></iframe>
-      <noscript><p><a href="https://tally.so/r/lb2ZKX">Open the waitlist form →</a></p></noscript>
     </div>
   </section>
 
   <footer>
-    <div>© 2026 ZEROFAYYZ STUDIOS · RightsVault is in development.</div>
-    <div class="legal">
-      Launch pricing applies to waitlist members at release. RightsVault organizes rights evidence,
-      source records, license metadata and release-readiness checks. It does not provide legal advice
-      and does not guarantee that a project or product is legally cleared for release. For unclear
-      licenses, contracts or disputes, consult a qualified professional.
-    </div>
+    <div>© 2026 ZEROFAYYZ ·
+      <a href="ai-video-prompting-guide.html">AI Video Prompting Guide</a> ·
+      <a href="ai-disclosure-checklist.html">AI Disclosure Checklist</a> ·
+      <a href="content-id-defense-kit.html">Content ID Defense Kit</a></div>
+    <div class="legal">The free guides are provided for informational purposes and are not legal
+    advice. Platform requirements change — verify against current official documentation before
+    relying on any of it. Not affiliated with, endorsed by, or sponsored by any platform or model
+    maker named in them; all trademarks belong to their respective owners.</div>
   </footer>
 
 </div>
-
-<script>
-/* Signup attribution: remember where this visitor came from and hand it to Tally.
-   First touch wins — a visitor who arrives from Reddit, reads a guide, then signs up
-   two days later is still credited to Reddit. Requires a hidden field named "ref"
-   on the Tally form; harmless if absent. */
-(function(){
-  var K="zf_ref", q=new URLSearchParams(location.search);
-  var ref=q.get("ref")||q.get("utm_source");
-  if(!ref){ try{ ref=localStorage.getItem(K); }catch(e){} }
-  if(!ref&&document.referrer){
-    try{ var h=new URL(document.referrer).hostname.replace(/^www\./,"");
-         if(h&&h!==location.hostname) ref=h; }catch(e){}
-  }
-  ref=(ref||"direct").toString().slice(0,60);
-  try{ if(!localStorage.getItem(K)) localStorage.setItem(K,ref); }catch(e){}
-  var f=document.querySelector("iframe[data-tally-src]");
-  if(f) f.dataset.tallySrc+="&ref="+encodeURIComponent(ref);
-  document.querySelectorAll('a[href$=".html"]').forEach(function(a){
-    if(location.search) a.href+=location.search;
-  });
-})();
-
-/* Tally embed loader (official snippet) */
-var d=document,w="https://tally.so/widgets/embed.js",v=function(){
-  "undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc});
-};
-if("undefined"!=typeof Tally)v();
-else if(null===d.querySelector('script[src="'+w+'"]')){
-  var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);
-}
-</script>
 </body>
 </html>
