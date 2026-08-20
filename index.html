@@ -42,83 +42,57 @@
   .mail{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; word-break:break-all}
   .tellme{margin:14px 0 24px; padding-left:22px; color:var(--muted); font-size:15px; max-width:64ch}
   .tellme li{margin:6px 0}
-  .hero-band .brand-logo{mix-blend-mode:normal; width:210px}
+  header .brand-logo{mix-blend-mode:normal; width:190px}
 
-  /* Hero band. The artwork sits behind the copy, not beside it, and a scrim
-     keeps the headline readable no matter how bright the art gets. */
-  .hero-band{position:relative; overflow:hidden; min-height:620px;
-             border-bottom:1px solid var(--line-soft); display:flex; flex-direction:column}
-  /* The artwork runs at full strength. Readability comes from the scrim below,
-     which is heavy only where the copy sits — not from dimming the whole image. */
-  .hero-band::before{
-    content:""; position:absolute; inset:0; z-index:0;
-    background:url("hero-bg.jpg") 60% 45% / cover no-repeat;
-  }
-  .hero-band::after{
-    content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
-    /* An even veil over the whole frame plus a soft pool behind the copy —
-       no hard edge, so the artwork reads corner to corner. */
-    background:
-      radial-gradient(115% 95% at 28% 60%, rgba(8,10,18,.88) 0%,
-                                           rgba(8,10,18,.62) 34%,
-                                           rgba(8,10,18,.22) 62%,
-                                           rgba(8,10,18,0) 82%),
-      linear-gradient(180deg, rgba(8,10,18,.52) 0%, rgba(8,10,18,.24) 26%,
-                              rgba(8,10,18,.24) 66%, rgba(8,10,18,.90) 100%);
-  }
-  .hero-band .wrap{position:relative; z-index:2}
-  .hero-band .hero{padding:70px 0 84px}
-  /* Keep the copy inside the darkened half so it never sits on bright artwork. */
-  .hero-band .sub{max-width:52ch}
-  .hero-band h1{text-shadow:none;
-    filter:drop-shadow(0 2px 6px rgba(4,6,12,.98)) drop-shadow(0 8px 30px rgba(4,6,12,.9))}
-  .hero-band .sub{text-shadow:0 1px 8px rgba(4,6,12,.98), 0 4px 22px rgba(4,6,12,.9)}
-  .hero-band .eyebrow{backdrop-filter:blur(3px); background:rgba(8,10,18,.45)}
-  /* Lower band — the animation studio art sits behind the guides section so the
-     video side of the work gets shown too, without competing with the hero. */
-  /* A showcase strip. Nothing sits on top of it — the artwork is the content. */
+  /* Masthead: copy only, on plain ground. The artwork gets its own strip below
+     so neither has to fight the other for legibility. */
+  .masthead{padding:34px 0 40px}
+  .masthead .eyebrow{margin-bottom:16px}
+  .masthead h1{margin-bottom:14px}
+  .masthead .sub{max-width:58ch; margin-bottom:22px}
+
+  /* Showcase strips. Nothing sits on top of them — the artwork is the content. */
   .art-band{position:relative; overflow:hidden; height:clamp(300px,34vw,520px);
-            background:url("band-bg.jpg") 50% 46% / cover no-repeat}
+            background-size:cover; background-repeat:no-repeat}
+  .art-band.top{background-image:url("hero-bg.jpg"); background-position:52% 46%}
+  .art-band.lower{background-image:url("band-bg.jpg"); background-position:50% 46%}
   .art-band::after{
     content:""; position:absolute; inset:0; pointer-events:none;
-    background:linear-gradient(180deg, var(--bg) 0%, rgba(8,10,18,.10) 16%,
-                                       rgba(8,10,18,.10) 84%, var(--bg) 100%);
+    background:linear-gradient(180deg, var(--bg) 0%, rgba(8,10,18,.08) 14%,
+                                       rgba(8,10,18,.08) 86%, var(--bg) 100%);
   }
 
   @media (max-width:720px){
-    .hero-band{min-height:0}
-    .hero-band{min-height:0}
-    .art-band{height:230px; background-position:56% 48%}
-    .hero-band::before{background-position:58% 42%}
-    .hero-band::after{background:
-      radial-gradient(150% 70% at 50% 56%, rgba(8,10,18,.68) 0%, rgba(8,10,18,.42) 60%, rgba(8,10,18,.22) 100%),
-      linear-gradient(180deg, rgba(8,10,18,.55) 0%, rgba(8,10,18,.30) 30%, rgba(8,10,18,.92) 100%)}
+    .masthead{padding:22px 0 30px}
+    .art-band{height:220px}
+    .art-band.top{background-position:56% 46%}
+    .art-band.lower{background-position:56% 48%}
   }
 </style>
 </head>
 <body>
 
-<div class="hero-band">
-  <header><div class="wrap">
-    <img class="brand-logo" src="logo-mark.png" alt="ZEROFAYYZ STUDIOS" width="900" height="695">
-  </div></header>
+<header><div class="wrap">
+  <img class="brand-logo" src="logo-mark.png" alt="ZEROFAYYZ STUDIOS" width="900" height="695">
+</div></header>
 
-  <div class="wrap">
-    <div class="hero">
-      <span class="eyebrow">Digital production studio</span>
-      <h1>3D that arrives working.<br><span class="g">Video that gets made.</span></h1>
-      <p class="sub">
-        Game-ready characters, environments and props for Unity, Unreal and Blender.
-        AI-generated video and animated shorts. Custom tools and interfaces for people
-        who need something that doesn't exist yet.
-      </p>
-      <div class="cta-row">
-        <a class="btn" href="#contact">Start a project →</a>
-        <a class="btn-ghost" href="#guides">Free guides for AI creators →</a>
-      </div>
+<div class="wrap">
+  <div class="masthead">
+    <span class="eyebrow">Digital production studio</span>
+    <h1>3D that arrives working.<br><span class="g">Video that gets made.</span></h1>
+    <p class="sub">
+      Game-ready characters, environments and props for Unity, Unreal and Blender.
+      AI-generated video and animated shorts. Custom tools and interfaces.
+    </p>
+    <div class="cta-row">
+      <a class="btn" href="#contact">Start a project →</a>
+      <a class="btn-ghost" href="#guides">Free guides for AI creators →</a>
     </div>
   </div>
 </div>
+
+<!-- Showcase strip: asset pipeline. The artwork is the content. -->
+<div class="art-band top" role="img" aria-label="A ZEROFAYYZ asset workstation: character rig with skeleton overlay, LOD variants, a modular environment, prop kit, PBR material spheres, texture maps, build dashboard and code"></div>
 
 <div class="wrap">
 
@@ -213,7 +187,7 @@
 </div><!-- /wrap -->
 
 <!-- Showcase strip: the artwork is the content, nothing sits over it. -->
-<div class="art-band" role="img" aria-label="A ZEROFAYYZ animation workstation: storyboard, timeline, character rigging, lip sync, scene management and render queue"></div>
+<div class="art-band lower" role="img" aria-label="A ZEROFAYYZ animation workstation: storyboard, timeline, character rigging, lip sync, scene management and render queue"></div>
 
 <div class="wrap">
 
