@@ -42,31 +42,77 @@
   .mail{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:15px; word-break:break-all}
   .tellme{margin:14px 0 24px; padding-left:22px; color:var(--muted); font-size:15px; max-width:64ch}
   .tellme li{margin:6px 0}
+  .hero-band .brand-logo{mix-blend-mode:normal; width:210px}
+
+  /* Hero band. The artwork sits behind the copy, not beside it, and a scrim
+     keeps the headline readable no matter how bright the art gets. */
+  .hero-band{position:relative; overflow:hidden; border-bottom:1px solid var(--line-soft)}
+  .hero-band::before{
+    content:""; position:absolute; inset:0; z-index:0;
+    background:url("hero-bg.jpg") 58% 42% / cover no-repeat;
+    opacity:.62;
+  }
+  .hero-band::after{
+    content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:
+      linear-gradient(90deg, var(--bg) 4%, rgba(8,10,18,.90) 38%, rgba(8,10,18,.30) 78%, rgba(8,10,18,.55) 100%),
+      linear-gradient(180deg, rgba(8,10,18,.60) 0%, transparent 26%, rgba(8,10,18,.97) 100%);
+  }
+  .hero-band .wrap{position:relative; z-index:2}
+  .hero-band .hero{padding:76px 0 66px}
+  /* Lower band — the animation studio art sits behind the guides section so the
+     video side of the work gets shown too, without competing with the hero. */
+  .art-band{position:relative; overflow:hidden;
+            border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft)}
+  .art-band::before{
+    content:""; position:absolute; inset:0; z-index:0;
+    background:url("band-bg.jpg") 42% 50% / cover no-repeat; opacity:.34;
+  }
+  .art-band::after{
+    content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:
+      linear-gradient(90deg, rgba(8,10,18,.94) 0%, rgba(8,10,18,.72) 46%, rgba(8,10,18,.34) 100%),
+      linear-gradient(180deg, var(--bg) 0%, transparent 22%, transparent 74%, var(--bg) 100%);
+  }
+  .art-band > .wrap{position:relative; z-index:2}
+  .art-band section{border-top:0}
+
+  @media (max-width:720px){
+    .art-band::before{opacity:.22}
+    .art-band::after{background:linear-gradient(180deg, var(--bg) 0%, rgba(8,10,18,.88) 40%, var(--bg) 100%)}
+    .hero-band::before{background-position:62% 38%; opacity:.3}
+    .hero-band::after{background:
+      linear-gradient(180deg, rgba(8,10,18,.78) 0%, rgba(8,10,18,.86) 45%, rgba(8,10,18,.97) 100%)}
+  }
 </style>
 </head>
 <body>
 
-<header><div class="wrap">
-  <img class="brand-logo" src="logo.png" alt="ZEROFAYYZ STUDIOS" width="560" height="373">
-</div></header>
+<div class="hero-band">
+  <header><div class="wrap">
+    <img class="brand-logo" src="logo-mark.png" alt="ZEROFAYYZ STUDIOS" width="900" height="695">
+  </div></header>
+
+  <div class="wrap">
+    <div class="hero">
+      <span class="eyebrow">Digital production studio</span>
+      <h1>3D that arrives working.<br><span class="g">Video that gets made.</span></h1>
+      <p class="sub">
+        Game-ready characters, environments and props for Unity, Unreal and Blender.
+        AI-generated video and animated shorts. Custom tools and interfaces for people
+        who need something that doesn't exist yet.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="#contact">Start a project →</a>
+        <a class="btn-ghost" href="#guides">Free guides for AI creators →</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="wrap">
 
-  <div class="hero">
-    <span class="eyebrow">Digital production studio</span>
-    <h1>3D that arrives working.<br><span class="g">Video that gets made.</span></h1>
-    <p class="sub">
-      Game-ready characters, environments and props for Unity, Unreal and Blender.
-      AI-generated video and animated shorts. Custom tools and interfaces for people
-      who need something that doesn't exist yet.
-    </p>
-    <div class="cta-row">
-      <a class="btn" href="#contact">Start a project →</a>
-      <a class="btn-ghost" href="#guides">Free guides for AI creators →</a>
-    </div>
-  </div>
-
-  <section id="services">
+  <section id="services" style="border-top:0">
     <h2>What we do</h2>
     <p class="lede">Three things, done properly, rather than everything done adequately.</p>
 
@@ -89,6 +135,11 @@
         bones, and Blender's own importer will re-open the broken file looking correct. We learned
         that the hard way, so every rig now ships with a parity test that runs in the engine. That's
         the difference between an asset and an asset that works.</div>
+        <div class="proof"><b>Want a finished pack instead of custom work?</b> Our ready-made game
+        assets are published under <a href="https://zeroreignstudios.github.io/" rel="noopener">ZeroReign
+        Studios</a> — starting with <a href="https://zeroreignstudios.github.io/lanterntail.html" rel="noopener">LanternTail</a>,
+        a stylized creature pack with 31 animations, 16 colourways, swappable gear and 18 matching
+        props, built for Unity and Unreal.</div>
       </div>
 
       <div class="lane">
@@ -124,6 +175,10 @@
     </div>
   </section>
 
+</div><!-- /wrap -->
+
+<div class="art-band">
+  <div class="wrap">
   <section id="guides">
     <h2>Free guides</h2>
     <p class="lede">Written because they didn't exist and we needed them. No signup, no email gate,
@@ -148,6 +203,11 @@
       </a>
     </div>
   </section>
+
+  </div>
+</div><!-- /art-band -->
+
+<div class="wrap">
 
   <section id="products">
     <h2>Products</h2>
