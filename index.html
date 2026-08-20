@@ -56,48 +56,43 @@
   }
   .hero-band::after{
     content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+    /* An even veil over the whole frame plus a soft pool behind the copy —
+       no hard edge, so the artwork reads corner to corner. */
     background:
-      linear-gradient(90deg, rgba(8,10,18,.97) 0%, rgba(8,10,18,.93) 30%,
-                             rgba(8,10,18,.72) 48%, rgba(8,10,18,.18) 72%, rgba(8,10,18,0) 88%),
-      linear-gradient(180deg, rgba(8,10,18,.55) 0%, rgba(8,10,18,0) 22%,
-                              rgba(8,10,18,0) 72%, rgba(8,10,18,.88) 100%);
+      radial-gradient(115% 95% at 28% 60%, rgba(8,10,18,.88) 0%,
+                                           rgba(8,10,18,.62) 34%,
+                                           rgba(8,10,18,.22) 62%,
+                                           rgba(8,10,18,0) 82%),
+      linear-gradient(180deg, rgba(8,10,18,.52) 0%, rgba(8,10,18,.24) 26%,
+                              rgba(8,10,18,.24) 66%, rgba(8,10,18,.90) 100%);
   }
   .hero-band .wrap{position:relative; z-index:2}
   .hero-band .hero{padding:70px 0 84px}
   /* Keep the copy inside the darkened half so it never sits on bright artwork. */
-  .hero-band .sub{max-width:46ch}
-  .hero-band h1,.hero-band .sub{text-shadow:0 2px 18px rgba(4,6,12,.85)}
+  .hero-band .sub{max-width:52ch}
+  .hero-band h1{text-shadow:none;
+    filter:drop-shadow(0 2px 6px rgba(4,6,12,.98)) drop-shadow(0 8px 30px rgba(4,6,12,.9))}
+  .hero-band .sub{text-shadow:0 1px 8px rgba(4,6,12,.98), 0 4px 22px rgba(4,6,12,.9)}
+  .hero-band .eyebrow{backdrop-filter:blur(3px); background:rgba(8,10,18,.45)}
   /* Lower band — the animation studio art sits behind the guides section so the
      video side of the work gets shown too, without competing with the hero. */
-  .art-band{position:relative; overflow:hidden; min-height:660px;
-            border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft)}
-  .art-band::before{
-    content:""; position:absolute; inset:0; z-index:0;
-    background:url("band-bg.jpg") 50% 46% / cover no-repeat;
-  }
+  /* A showcase strip. Nothing sits on top of it — the artwork is the content. */
+  .art-band{position:relative; overflow:hidden; height:clamp(300px,34vw,520px);
+            background:url("band-bg.jpg") 50% 46% / cover no-repeat}
   .art-band::after{
-    content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
-    background:
-      linear-gradient(90deg, rgba(8,10,18,.97) 0%, rgba(8,10,18,.94) 34%,
-                             rgba(8,10,18,.80) 54%, rgba(8,10,18,.34) 78%, rgba(8,10,18,.04) 100%),
-      linear-gradient(180deg, var(--bg) 0%, rgba(8,10,18,0) 26%,
-                              rgba(8,10,18,0) 74%, var(--bg) 100%);
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:linear-gradient(180deg, var(--bg) 0%, rgba(8,10,18,.10) 16%,
+                                       rgba(8,10,18,.10) 84%, var(--bg) 100%);
   }
-  .art-band > .wrap{position:relative; z-index:2}
-  .art-band section{border-top:0; padding:88px 0 96px}
-  .art-band h2,.art-band .lede{text-shadow:0 2px 18px rgba(4,6,12,.9)}
-  .art-band .lede{max-width:52ch}
 
   @media (max-width:720px){
     .hero-band{min-height:0}
-    .art-band{min-height:0}
-    .art-band section{padding:56px 0 62px}
-    .art-band::before{background-position:56% 46%}
-    .art-band::after{background:linear-gradient(180deg, var(--bg) 0%, rgba(8,10,18,.84) 30%,
-                                                rgba(8,10,18,.84) 72%, var(--bg) 100%)}
-    .hero-band::before{background-position:58% 40%}
-    .hero-band::after{background:linear-gradient(180deg, rgba(8,10,18,.55) 0%, rgba(8,10,18,.86) 34%,
-                                                 rgba(8,10,18,.93) 100%)}
+    .hero-band{min-height:0}
+    .art-band{height:230px; background-position:56% 48%}
+    .hero-band::before{background-position:58% 42%}
+    .hero-band::after{background:
+      radial-gradient(150% 70% at 50% 56%, rgba(8,10,18,.68) 0%, rgba(8,10,18,.42) 60%, rgba(8,10,18,.22) 100%),
+      linear-gradient(180deg, rgba(8,10,18,.55) 0%, rgba(8,10,18,.30) 30%, rgba(8,10,18,.92) 100%)}
   }
 </style>
 </head>
@@ -190,10 +185,6 @@
     </div>
   </section>
 
-</div><!-- /wrap -->
-
-<div class="art-band">
-  <div class="wrap">
   <section id="guides">
     <h2>Free guides</h2>
     <p class="lede">Written because they didn't exist and we needed them. No signup, no email gate,
@@ -219,8 +210,10 @@
     </div>
   </section>
 
-  </div>
-</div><!-- /art-band -->
+</div><!-- /wrap -->
+
+<!-- Showcase strip: the artwork is the content, nothing sits over it. -->
+<div class="art-band" role="img" aria-label="A ZEROFAYYZ animation workstation: storyboard, timeline, character rigging, lip sync, scene management and render queue"></div>
 
 <div class="wrap">
 
