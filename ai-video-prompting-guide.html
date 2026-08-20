@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Video Prompting Guide (2026) — Seedance, Kling, Veo, Wan, FLUX</title>
+<meta name="description" content="Every major AI image and video model wants a different prompt. Side-by-side syntax, audio and dialogue formats, camera control and failure fixes for Seedance, Kling, Veo, Wan, Hailuo, FLUX, Nano Banana and more. Free, no signup.">
+<link rel="canonical" href="https://zerofayyz.com/ai-video-prompting-guide.html">
+<meta name="author" content="ZEROFAYYZ">
+<meta property="og:title" content="AI Video Prompting Guide (2026) — every model, side by side">
+<meta property="og:description" content="Seedance takes audio delimiters. Hailuo takes bracket camera commands. Veo burns in captions unless you stop it. One guide, ~15 models, the syntax each one actually expects.">
+<meta property="og:image" content="https://zerofayyz.com/social.jpg">
+<meta property="og:url" content="https://zerofayyz.com/ai-video-prompting-guide.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ZEROFAYYZ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Video Prompting Guide (2026) — every model, side by side">
+<meta name="twitter:description" content="The prompt format each AI video model actually expects — Seedance, Kling, Veo, Wan, Hailuo, FLUX. Free, no signup.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  .toc{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px 24px;margin:28px 0 34px}
+  .toc h2{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+  .toc ol{margin:0;padding-left:20px;color:#cfd6e6}
+  .toc li{margin:6px 0}
+  .tag-a,.tag-d{font-size:11px;font-weight:800;letter-spacing:.06em;padding:1px 6px;border-radius:5px;vertical-align:1px}
+  .tag-a{background:rgba(79,227,176,.13);color:var(--good);border:1px solid rgba(79,227,176,.32)}
+  .tag-d{background:rgba(255,196,107,.11);color:var(--warn);border:1px solid rgba(255,196,107,.3)}
+  .model{border-top:1px solid var(--line-soft);padding-top:26px;margin-top:34px}
+  .model h3{font-size:21px;margin:0 0 4px;letter-spacing:-.01em}
+  .model .role{color:var(--muted);font-size:14px;margin:0 0 14px}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;
+       background:var(--panel-2);border:1px solid var(--line);border-radius:5px;padding:1px 5px;color:#dbe2f2}
+  .part{margin-top:56px}
+  .part h2{font-size:clamp(23px,3.4vw,32px)}
+  .part>.lede{margin-bottom:8px}
+  .srcs{font-size:14px;color:var(--muted);max-width:74ch}
+  .srcs b{color:var(--text)}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"AI Video Prompting Guide (2026) — every image and video model, side by side",
+  "description":"The prompt structure, audio and dialogue syntax, camera control and failure fixes for the major AI image and video models — Seedance, Kling, Veo, Wan, Hailuo, FLUX, Nano Banana, Seedream and more.",
+  "datePublished":"2026-08-20",
+  "dateModified":"2026-08-20",
+  "inLanguage":"en",
+  "isAccessibleForFree":true,
+  "image":"https://zerofayyz.com/social.jpg",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://zerofayyz.com/ai-video-prompting-guide.html"},
+  "author":{"@type":"Organization","name":"ZEROFAYYZ","url":"https://zerofayyz.com"},
+  "publisher":{"@type":"Organization","name":"ZEROFAYYZ","url":"https://zerofayyz.com"}
+}
+</script>
+</head>
+<body>
+
+<header><div class="wrap">
+  <a class="brand-link" href="index.html"><img class="brand-logo" src="logo.png" alt="ZEROFAYYZ STUDIOS" width="560" height="373"></a>
+</div></header>
+
+<div class="wrap read">
+  <article>
+    <span class="eyebrow">Free guide · no signup</span>
+    <h1>The <span class="g">AI Video Prompting</span> Guide</h1>
+    <p class="sub">Every major image and video model wants to be prompted differently. This is what each
+    one actually expects — side by side, with the failure each one produces and how to fix it.</p>
+
+    <p>Seedance takes audio as delimiters inside the prompt. Kling wants a master prompt plus per-shot
+    blocks. MiniMax Hailuo takes literal camera commands in square brackets. Veo burns subtitles into
+    the video unless you explicitly tell it not to. FLUX has no negative prompts at all.</p>
+
+    <p>Every model maker documents their own model and nothing else, because no vendor has a reason to
+    write about a competitor's syntax. So this puts them in one place: <strong>~15 image and video
+    models</strong>, the structure each one wants, the audio and dialogue formats, the camera controls,
+    and what actually transfers between them.</p>
+
+    <div class="callout">
+      <p><strong>How to read the tags.</strong>
+      <span class="tag-a">A</span> = officially documented by the platform or the model's maker.
+      <span class="tag-d">D</span> = community-reported — useful, but unverified. Sources are listed at
+      the end, and the honest gaps are marked as gaps rather than filled with guesses.</p>
+      <p style="margin-top:10px"><strong>Everything here is dated 2026-08-10.</strong> These platforms ship
+      changes weekly. <em>When the app disagrees with this guide, the app is right.</em></p>
+    </div>
+
+    <div class="callout" style="border-style:solid;border-color:rgba(168,85,247,.4);background:rgba(168,85,247,.07)">
+      <p><strong>Feeding this to an AI assistant?</strong> That's what it was built for. Give the whole
+      page to Claude or ChatGPT and tell it to use this as its reference when helping you write prompts —
+      it'll pick the right model and the right syntax instead of guessing.</p>
+    </div>
+
+    <nav class="toc">
+      <h2>What's in here</h2>
+      <ol>
+        <li><a href="#doctrine">Universal doctrine</a> — the 13 rules that hold across every model</li>
+        <li><a href="#map">Model map</a> — which model for which job</li>
+        <li><a href="#images">Image models</a> — Soul ID, Popcorn, Nano Banana, Seedream, FLUX.2, GPT Image 2, Recraft</li>
+        <li><a href="#video">Video models</a> — Seedance, Kling, Veo, Wan, Hailuo, DOP presets, Cinema Studio</li>
+        <li><a href="#pipeline">The consistent-character pipeline</a> — putting it together</li>
+        <li><a href="#sources">Sources &amp; known gaps</a></li>
+      </ol>
+    </nav>
+
+    <p><strong>How to use it:</strong> apply the doctrine below to structure your direction, pick the model
+    with the model map, write the prompt using that model's sheet, and when it fails, use that model's
+    failure-fix notes — changing <strong>one thing</strong> per retry.</p>
+
+    <!-- ============ PART 1 ============ -->
+    <div class="part" id="doctrine">
+      <h2>Part 1 — Universal doctrine</h2>
+      <p class="lede">These hold on every model I looked at. Learn these and most of the per-model detail
+      becomes adjustment rather than relearning.</p>
+
+      <ol>
+        <li><strong>One clip = one continuous shot.</strong> Never ask for cuts unless you're in an explicit
+        multi-shot mode (Kling 6-shot, Veo timestamps, Wan 2.7 "Shot n", Seedance numbered shots). Asking
+        for cuts inside a normal generation produces mush.</li>
+
+        <li><strong>Subject first, style last.</strong> Lead with who and what exists and who owns each
+        object, then the action in time order, then camera, then environment, then style. Front-loaded
+        words get more weight in nearly every model.</li>
+
+        <li><strong>The image-to-video golden rule: never re-describe the start image.</strong> The image
+        already decides who is present, the framing and the light. Prompt <em>only</em> what moves, what
+        causes it, the camera, the audio, and where it settles. This one changes more than any other.</li>
+
+        <li><strong>One primary camera move per clip.</strong> Stacked moves cause warping and drift. Name
+        the move in film-school verbs — push-in, dolly, orbit, tilt — and <strong>state what the camera is
+        NOT doing</strong> to lock it: <code>static shot, no cuts, no zoom</code>.</li>
+
+        <li><strong>Timed beats are the universal pacing control.</strong>
+        <code>0–3s: [beat]. 3–6s: [beat].</code> Works on Seedance, Veo, Wan 2.7, Hailuo H3 and Cinema
+        Studio, and it's badly underused.</li>
+
+        <li><strong>Positive phrasing beats negatives.</strong> Say "empty street," not "no cars." Where
+        negatives <em>are</em> supported, list concrete artifacts ("frozen lips, warping fingers, extra
+        limbs") — never vibes.</li>
+
+        <li><strong>Identity discipline.</strong> Write one authoritative character description — face, age,
+        build, hair, wardrobe, distinguishing marks — and reuse it <strong>verbatim in every prompt</strong>.
+        Never write "keep consistent"; enumerate the features. Anchor with a trained character ID where the
+        platform has one, and tag the reference in every prompt.</li>
+
+        <li><strong>Every reference image gets a job.</strong> <code>@image1 provides the character's face
+        only. Do not use its background.</code> Unassigned references leak unwanted content into the frame.</li>
+
+        <li><strong>Dialogue rules.</strong> Label speaker and tone, put action before the line, keep lines
+        one-breath short (≈2 words per second of clip), and write them verbatim. Suppress unwanted audio
+        explicitly — "No dialogue. No background music" — because silence left unstated usually gets scored.</li>
+
+        <li><strong>Keep talking-head clips under ~30s</strong> (gesture repetition sets in beyond that);
+        under 20s hides eye-behaviour artifacts. <span class="tag-a">A</span></li>
+
+        <li><strong>Iterate by targeted edit, not re-roll,</strong> wherever it's supported — Seedance region
+        edit, Kling scene editing, GPT Image 2 change/preserve. One variable per retry; freeze what worked.</li>
+
+        <li><strong>Never rely on exact on-screen rendered text in video.</strong> Use subtitle syntax where
+        it exists, or add the text in post.</li>
+
+        <li><strong>Repair method: observe before diagnosing.</strong> "Six fingers on the right hand" is an
+        observation; "the model is bad at hands" is a story. Find the first failing moment — the ranges
+        before and after it are often still usable trimmed.</li>
+      </ol>
+    </div>
+
+    <!-- ============ PART 2 ============ -->
+    <div class="part" id="map">
+      <h2>Part 2 — Model map</h2>
+      <p class="lede">Which model for which job.</p>
+      <table>
+        <tr><th>Job</th><th>First choice</th><th>Alternatives</th></tr>
+        <tr><td>Character design stills + consistency</td><td><strong>Soul 2.0 + Soul ID</strong></td><td>Nano Banana Pro (14 refs), Seedream</td></tr>
+        <tr><td>Cinematic keyframes (photographic look)</td><td><strong>FLUX.2 Pro / Nano Banana Pro</strong></td><td>Seedream 4.5/5.0, GPT Image 2</td></tr>
+        <tr><td>Storyboards / multi-frame sequences</td><td><strong>Popcorn</strong></td><td>Nano Banana</td></tr>
+        <tr><td>Instruction-style image edits</td><td><strong>GPT Image 2</strong></td><td>Nano Banana</td></tr>
+        <tr><td>Text in images (titles, signs)</td><td><strong>GPT Image 2 / Nano Banana Pro</strong></td><td>Recraft (typographic systems), Seedream 4.5</td></tr>
+        <tr><td>Hero video shots (long, audio, refs)</td><td><strong>Seedance 2.5</strong> (30s, 50 refs, same-pass audio)</td><td>Seedance 2.0</td></tr>
+        <tr><td>Cheap drafts / B-roll volume</td><td><strong>Kling 2.6 / MiniMax Hailuo</strong></td><td>Kling 3.0</td></tr>
+        <tr><td>Multi-shot sequences in one generation</td><td><strong>Kling 3.0</strong> (6 cuts)</td><td>Veo timestamps, Wan 2.7</td></tr>
+        <tr><td>Start-frame → end-frame continuity</td><td><strong>Kling 3.0 / Wan</strong></td><td>Hailuo 02</td></tr>
+        <tr><td>Atmosphere/realism + native soundscape</td><td><strong>Veo 3.1</strong></td><td>Seedance 2.5</td></tr>
+        <tr><td>Dialogue / lipsync</td><td><strong>Kling 3.0 Omni</strong> (Voice Binding)</td><td>Veo 3.1, Wan Speak, LipSync Studio</td></tr>
+        <tr><td>Transformations / elemental FX / anime</td><td><strong>Hailuo 2.3</strong></td><td>—</td></tr>
+        <tr><td>Camera-move spectacle on a still</td><td><strong>DOP presets</strong> (65 moves)</td><td>Kling</td></tr>
+        <tr><td>Final polish</td><td><strong>Upscale</strong> (Topaz; Iris for faces)</td><td>—</td></tr>
+      </table>
+    </div>
+
+    <!-- ============ PART 3 ============ -->
+    <div class="part" id="images">
+      <h2>Part 3 — Image models</h2>
+
+      <div class="model">
+        <h3>Soul 2.0 + Soul ID</h3>
+        <p class="role">Character-consistency backbone</p>
+        <ul>
+          <li><strong>Preset-driven, not prompt-driven</strong> <span class="tag-a">A</span>: pick one of 20+
+          aesthetic presets (Mystique City, Warm Ambient, Editorial Street Style, Nature Light, Theatrical
+          Light…) — the preset carries lighting, camera and style. Your prompt supplies subject, action,
+          setting, outfit. It understands fashion and editorial language natively.</li>
+          <li><strong>Soul ID training</strong> <span class="tag-a">A</span>: upload <strong>20–80 photos</strong>
+          of the person — well lit, varied angles <em>and</em> expressions, <strong>at least one full-height
+          shot</strong>, from the <strong>last 4–5 months</strong>. Avoid sunglasses, heavy shadows, crops and
+          group shots. Quality beats quantity. Trains in about 3–5 minutes.</li>
+          <li><strong>Cross-model bridge</strong> <span class="tag-a">A</span>: the trained character appears
+          under <strong>Elements</strong> — type <code>@</code> in the prompt field of Nano Banana, Seedream,
+          Kling, Seedance or Cinema Studio and select the character. This is how one face survives a whole film.</li>
+          <li>Don't re-describe the face in the prompt when the character is selected — the ID handles it.</li>
+          <li><strong>Failure modes:</strong> extreme style shifts cause small drift (expected); a weak training
+          set gives a weak lock; one identity per Soul ID, so multi-character scenes need multiple Elements.</li>
+        </ul>
+        <div class="tmpl">[Character selected] + [preset] + "wearing X, doing Y, in Z location"</div>
+      </div>
+
+      <div class="model">
+        <h3>Popcorn</h3>
+        <p class="role">Storyboards</p>
+        <ul>
+          <li><strong>Manual mode is the filmmaker mode</strong> <span class="tag-a">A</span>: per-frame
+          prompts — set shot type (close-up, wide, over-the-shoulder), action and lighting per cell. Auto mode
+          takes one world-prompt and returns a 4/6/8-frame narrative arc.</li>
+          <li><strong>Up to 4 reference images</strong>, roles assigned by ordinal in prose: "The man from image
+          one standing in the forest from image two, holding the object from image three."</li>
+          <li>Subject <strong>first</strong> — the first-named subject becomes the tracked subject. Concrete
+          action verbs. Lighting and camera early.</li>
+          <li>Face, clothing and proportions are tracked across frames automatically; you can fix a single frame
+          without breaking the rest.</li>
+          <li><strong>Failure modes:</strong> low-res references degrade every frame; mismatched aspect ratios;
+          abstract prompts.</li>
+        </ul>
+        <div class="tmpl">Frame N: [shot size + angle] of [subject from image 1] [action] in [setting from image 2], [lighting], [mood]</div>
+      </div>
+
+      <div class="model">
+        <h3>Nano Banana / 2 / Pro</h3>
+        <p class="role">Google — reference control and text rendering</p>
+        <ul>
+          <li><strong>Narrative prose, not tag lists</strong> <span class="tag-a">A</span>:
+          <code>[Subject] + [Action] + [Location] + [Composition] + [Style]</code>. Positive framing only.
+          Edits start with a strong verb.</li>
+          <li><strong>Up to 14 reference images</strong> — the largest reference budget anywhere here. Assign
+          roles in prose ("the attached sketch as structure, the attached fabric as texture").</li>
+          <li><strong>Responds strongly to photographic vocabulary</strong> <span class="tag-a">A</span>:
+          camera hardware ("shot on Fujifilm"), lens and aperture ("low-angle, shallow depth of field f/1.8"),
+          lighting design ("chiaroscuro," "golden-hour backlighting"), film stock ("1980s colour film, slightly
+          grainy"). Name materials precisely — "navy blue tweed," not "nice fabric."</li>
+          <li><strong>Text rendering is a headline strength</strong> (especially Pro): put literal words in
+          <strong>quotes</strong>, name a font style per line, multilingual is fine.</li>
+          <li>Edits: conversational instructions plus an explicit "keep the rest identical." Iterate in
+          follow-ups rather than one giant prompt.</li>
+          <li>1K/2K/4K; ratios 21:9 → 9:16. Soul ID attaches via <code>@Elements</code>.</li>
+        </ul>
+      </div>
+
+      <div class="model">
+        <h3>Seedream 4.5 / 5.0</h3>
+        <p class="role">ByteDance</p>
+        <ul>
+          <li><strong>4.5:</strong> a five-part order — subject → style → composition → lighting → technical.
+          <strong>Front-load the character description.</strong> Sweet spot is <strong>30–100 words</strong>;
+          under 15 goes generic, over 150 and the instructions start competing. <span class="tag-d">D</span></li>
+          <li><strong>5.0:</strong> six elements (format, subject, composition, lighting, in-image text, style).
+          Order-tolerant but completeness-rewarded; stay under ~600 words. <strong>Up to 10 references</strong>,
+          named <strong>by content</strong> ("the tan leather-bound journal") rather than "image 3." Pin the
+          invariants: "Keep the exact silhouette, the exact camera angle, the exact studio lighting from the
+          reference."</li>
+          <li>Very responsive to lighting vocabulary (golden hour, low-key, dramatic side light) and camera
+          terms ("85mm lens," "rule of thirds").</li>
+          <li><strong>Text:</strong> 4.5 renders it well; <strong>5.0 garbles long text</strong> — acknowledged —
+          so keep 5.0 text short.</li>
+          <li><strong>Failure fixes:</strong> inconsistent subject → lead with the subject and add specific
+          traits; style miss → explicit "not cartoon-like" plus reinforcing synonyms. Watch for 5.0's
+          over-smooth skin and action overshoot on dynamic poses.</li>
+        </ul>
+      </div>
+
+      <div class="model">
+        <h3>FLUX.2 Pro</h3>
+        <p class="role">Black Forest Labs</p>
+        <ul>
+          <li><code>Subject + Action + Style + Context</code>, most important first.
+          <strong>30–80 words ideal.</strong> <span class="tag-a">A</span></li>
+          <li><strong>Two unique powers.</strong> Literal <strong>JSON prompting</strong> for multi-element
+          precision — <code>{scene, subjects:[{description, position, action}], style, color_palette:["#hex"],
+          lighting, camera:{lens, angle, depth_of_field}}</code> — and <strong>hex-colour binding</strong>:
+          "The sofa is deep teal hex #1B6B6F" holds far better than naming a colour.</li>
+          <li>Multi-reference 8–10 images, roles by index ("clothing from image 1, style from image 2").</li>
+          <li>Loves hardware realism: "Shot on Hasselblad X2D, 80mm, f/2.8," and era emulation ("2000s
+          digicam").</li>
+          <li><strong>No negative prompts.</strong> It's guidance-distilled — write "sharp focus throughout,"
+          never "no blur." This is the single most common mistake people bring over from SD-era habits.</li>
+        </ul>
+      </div>
+
+      <div class="model">
+        <h3>GPT Image 2</h3>
+        <p class="role">OpenAI</p>
+        <ul>
+          <li>Order: background/scene → subject → key details → constraints. Labelled segments beat dense
+          paragraphs. <span class="tag-a">A</span></li>
+          <li><strong>The core skill is change/preserve editing:</strong>
+          <code>Change: [exactly what]. Preserve: [face, identity, pose, lighting, framing, background].
+          Constraints: [no extra objects].</code> <strong>Restate the preserve list on every iteration</strong> —
+          drift accumulates silently.</li>
+          <li>Best-in-class small text (quotes plus typography; spell hard words letter by letter).</li>
+          <li>Photorealism: say "photorealistic," add real-texture cues ("pores, fabric wear"), and prefer
+          "35mm film photograph" over polish words.</li>
+          <li>Character template: "Same outfit, features and proportions; new scene and action. Do not redesign
+          the character" plus an anchor image.</li>
+        </ul>
+      </div>
+
+      <div class="model">
+        <h3>Recraft</h3>
+        <p class="role">Titles, posters, prop graphics</p>
+        <ul>
+          <li>Structured order: concept → environment → framing/pose → attributes → spatial relations →
+          lighting → camera → mood. <span class="tag-a">A</span></li>
+          <li><strong>Typographic systems are the specialty:</strong> quoted text plus format type, hierarchy,
+          placement and colour blocking. For vector and logo work: "no gradients, no shadows," strict palette.</li>
+          <li>Avoid stacked evaluative adjectives — "stunning," "gorgeous" — they measurably degrade output.
+          Style-reference copies layout, angle and composition strictly, which is what makes uniform title-card
+          sets possible.</li>
+        </ul>
+      </div>
+
+      <div class="model">
+        <h3>Draw-to-Video / Draw-to-Edit</h3>
+        <p class="role">Input mode, not a model</p>
+        <ul>
+          <li>Sketch the motion directly on the start frame <span class="tag-a">A</span>: <strong>arrows</strong>
+          for direction and speed (longer = stronger, curved = arcs), <strong>short text labels</strong> for
+          actions ("man walks"), <strong>numbers</strong> for sequence order.</li>
+          <li>Draw-to-Edit takes up to 8 references — drop an object in and size it to match perspective.</li>
+          <li><strong>One redraw beats five prompt rewrites.</strong></li>
+        </ul>
+      </div>
+
+      <div class="model">
+        <h3>Upscale</h3>
+        <p class="role">Finishing</p>
+        <ul>
+          <li>Image presets: Standard, <strong>High Fidelity v2</strong>, <strong>Text Refine</strong> (signs and
+          titles), Art &amp; CG, Low Res. Video: Proteus (standard), <strong>Iris</strong> (faces and portraits —
+          use it for character shots), Gaia, Theia. <span class="tag-a">A</span></li>
+          <li>Settings: Face Enhancement 70–85%; denoise ≤50; sharpness above 70 causes artifacts.
+          <span class="tag-a">A</span><span class="tag-d">D</span></li>
+          <li>Upscaling will not fix composition or heavy motion blur. Fix those upstream.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============ PART 4 ============ -->
+    <div class="part" id="video">
+      <h2>Part 4 — Video models</h2>
+
+      <div class="model">
+        <h3>Seedance 2.5 / 2.0</h3>
+        <p class="role">ByteDance — the workhorse</p>
+        <ul>
+          <li><strong>Official formula</strong> <span class="tag-a">A</span>:
+          <code>Subject + Action + Setting + Visual style + Camera work + Sound</code> — only subject and action
+          are mandatory. For multi-shot, declare shot count, total duration and aspect ratio <strong>upfront</strong>,
+          then baseline (film stock, aesthetic) → environment and character → numbered shots.</li>
+          <li><strong>2.5</strong> <span class="tag-a">A</span>: up to <strong>30s</strong> per generation. The UI
+          selectors (era, genre, lighting, physics, lens, tone, pacing) do heavy lifting, so the prompt can stay
+          short — around 350 words for a 30s clip is the official sample scale. Up to <strong>50 references</strong>
+          (practically ~8–12 image subjects). Audio is generated in the same pass. <strong>Region edit</strong>
+          fixes one object, face or background without re-rolling the clip — use it instead of retrying.</li>
+          <li><strong>References:</strong> "@image1 provides the character's face. Do not use its background."
+          For multi-angle references of one object: "all three images define one single [object]."</li>
+          <li><strong>Camera:</strong> name the real move, and state exclusions to lock POV — "No cuts, no zoom,
+          natural head movement." Handheld: "unstabilized, micro-jitters, abrupt jerks."</li>
+          <li><strong>Audio</strong> <span class="tag-a">A</span><span class="tag-d">D</span>: specify a sound
+          list or "NO MUSIC / NO SFX" — silence left unstated gets a score. 2.5 delimiters
+          <span class="tag-d">D</span>: music <code>( )</code>, SFX <code>&lt; &gt;</code>, dialogue
+          <code>{ }</code>, subtitles <code>【 】</code>. Declare language and accent before the lines.</li>
+          <li><strong>Failure fixes:</strong> drift on long clips → timed beats plus per-segment camera; feature
+          dilution → fewer references; background leakage → explicit exclusions; random cuts → "no cuts."</li>
+        </ul>
+        <div class="tmpl">@image is the first frame.
+0–3s: [beat]. 3–8s: [beat].
+Camera: slow push-in only.
+Preserve natural skin from reference.
+Audio: [ambience], (soft score). No cuts.</div>
+      </div>
+
+      <div class="model">
+        <h3>Kling 3.0 / 2.6</h3>
+        <p class="role">Kuaishou — multi-shot, cheap drafts, lipsync</p>
+        <ul>
+          <li><strong>Write directions to a scene, not a list of objects.</strong> <span class="tag-d">D</span>
+          The pattern is a <strong>master prompt</strong> (style anchor, 2–3 traits per character, environment,
+          palette) plus per-<strong>shot</strong> prompts (framing, camera, beats, dialogue, duration).</li>
+          <li><strong>Multi-shot</strong> <span class="tag-a">A</span><span class="tag-d">D</span>: up to
+          <strong>6 shots / 15s</strong> in one generation. Label each shot with framing and duration; characters
+          and grade carry across automatically.</li>
+          <li><strong>Start and end frame</strong> supported (or end-frame only) — the continuity power tool
+          between scenes.</li>
+          <li><strong>Dialogue</strong> <span class="tag-d">D</span>: <code>[Name: role, tone]: "Line."</code>
+          Action before the line; unique names, never pronouns; "Immediately" between speakers kills dead air.
+          Line budget is roughly <strong>8–12 words per 5s</strong> before lip sync falls apart.
+          <strong>Voice Binding</strong> (3.0 Omni, official) binds a voice from 5–30s of clean audio or a 3–8s
+          single-speaker video.</li>
+          <li><strong>Negatives:</strong> list concrete artifacts — "frozen lips, warping fingers, jittery eyes,
+          character drift."</li>
+          <li>Kling 2.6 is the budget single-shot B-roll and cheapest lipsync option; use the simple
+          subject + action + environment + camera formula there.</li>
+        </ul>
+        <div class="tmpl">MASTER: [style], [Char A: desc], [environment], [palette].
+SHOT 1 (4s): medium two-shot, slow push-in; A pours coffee; [A: warm]: "line."
+SHOT 2 (3s): reverse close-up; Immediately [B: quiet]: "line."
+NEGATIVE: frozen lips, character drift.</div>
+      </div>
+
+      <div class="model">
+        <h3>Veo 3 / 3.1</h3>
+        <p class="role">Google — atmosphere and native audio</p>
+        <ul>
+          <li><strong>Formula</strong> <span class="tag-a">A</span>:
+          <code>[Cinematography] + [Subject] + [Action] + [Context] + [Style &amp; Ambiance]</code>, written in
+          prose. Clips 4/6/8s, 16:9 or 9:16.</li>
+          <li><strong>Image-to-video:</strong> the image carries subject and scene; the prompt carries motion and
+          audio. <strong>Ingredients-to-Video</strong> supplies references by role ("Using the provided images for
+          the detective and the office…"). <strong>First+last frame:</strong> describe the camera path bridging
+          the two stills.</li>
+          <li><strong>Audio syntax</strong> <span class="tag-a">A</span>: dialogue in quotes with delivery in
+          prose (<code>She says, "We have to leave now," in a weary voice</code>);
+          <code>SFX: thunder cracks</code>; <code>Ambient noise: quiet hum of the bridge</code>; music as a
+          described line ("a swelling orchestral score begins").</li>
+          <li><strong>Timestamp prompting</strong> gives you mini-edits in one generation:
+          <code>[00:00-00:02] Medium shot… [00:02-00:04] Reverse shot…</code></li>
+          <li><strong>The gotcha:</strong> quoted dialogue tends to burn in captions. Append "no subtitles, no
+          captions, no on-screen text." <span class="tag-d">D</span> Describe exclusions positively where you
+          can — "desolate landscape with no buildings" style.</li>
+        </ul>
+      </div>
+
+      <div class="model">
+        <h3>Wan 2.5 / 2.6 / 2.7</h3>
+        <p class="role">Alibaba — frame control and Speak</p>
+        <ul>
+          <li><strong>Formula</strong> <span class="tag-a">A</span>: <code>Entity + Scene + Motion</code>
+          (plus aesthetic control, stylization and sound).</li>
+          <li><strong>Image-to-video:</strong> the image owns entity, scene and style; the prompt is
+          <strong>motion and camera only</strong>, with tempo words ("slowly," "quickly"). Re-describing the
+          image makes it fight you.</li>
+          <li><strong>Camera:</strong> verb phrases (push-in, pull-out, tracking, tilt up, fixed camera).
+          <strong>Keep orbit arcs under ~45°.</strong> "Generate single shot" prevents unwanted cuts.</li>
+          <li><strong>Audio</strong> <span class="tag-a">A</span>: voice = line + emotion + tone + speed +
+          timbre + accent; speaker-labelled lines (<code>Explorer: "…"</code>) with stage directions
+          ("trembling voice, calling out over wind"). Suppress with "No dialogue" / "No background music."
+          <strong>Wan Speak</strong> (LipSync Studio) maps speech onto footage while preserving identity — the
+          fix when word-exact lipsync matters.</li>
+          <li><strong>2.7 multi-shot:</strong> <code>Shot 1 [0–3 s]: …</code>, references cited as "Image 1" /
+          "Video 1". 2.6 takes up to 3 reference characters ("character1…").</li>
+          <li><strong>Known limits</strong> <span class="tag-a">A</span>: real people's names are rejected; one
+          clip is one continuous shot outside explicit multi-shot; exact on-screen text won't render; long
+          choreography breaks, so keep actions simple.</li>
+        </ul>
+      </div>
+
+      <div class="model">
+        <h3>MiniMax Hailuo 02 / 2.3 / H3</h3>
+        <p class="role">Bracket director syntax and physics</p>
+        <ul>
+          <li><strong>Hailuo 02</strong> <span class="tag-a">A</span>: the unique <strong>bracket director
+          syntax</strong> — <code>[Push in]</code>, <code>[Truck left]</code>, <code>[Pedestal up]</code>,
+          <code>[Static shot]</code>, <code>[Tracking shot]</code>… up to three combined:
+          <code>[Truck left, Pan right, Zoom in]</code>. More than three degrades. First and last frame
+          supported.</li>
+          <li><strong>Hailuo 2.3</strong> <span class="tag-a">A</span>: <strong>short, physical prompts</strong>.
+          Verbs that translate to physics — "dissolve," "ignite," "shift into light." Strengths are
+          transformations, elemental FX and anime line stability. Camera comes from preset categories in the UI,
+          not inline. Image-to-video rule: describe only what <em>changes</em>, and never ask for a wide shot from
+          a close-up input. Fixes: morphing → one action only; static output → add motion verbs; "deep-fried"
+          look → delete "8k, masterpiece" quality tags. No native audio documented.</li>
+          <li><strong>H3</strong> <span class="tag-d">D</span> — <em>no official prompt documentation exists
+          yet</em>. Community formula: reference description + core idea (1–2 sentences) + a
+          <strong>time-stamped visual process</strong>; 50–120 words typical; camera in natural language tied to
+          time windows ("0–3s: camera slowly pushes in"). Write dialogue <strong>verbatim</strong> — paraphrase
+          leaves no lipsync reference. Specify the <strong>ending state</strong> or the last frame is unusable.
+          For identity, enumerate every feature; never "keep consistent."</li>
+        </ul>
+      </div>
+
+      <div class="model">
+        <h3>The 65 camera presets (DOP)</h3>
+        <p class="role">Named moves as selectable controls</p>
+        <p><strong>Zooms:</strong> Zoom / Rapid Zoom / Crash Zoom In &amp; Out, YoYo Zoom, Eating Zoom, Eyes In,
+        Mouth In · <strong>Dolly:</strong> Dolly In/Out/Left/Right, Super Dolly, Double Dolly,
+        <strong>Dolly Zoom</strong> (the Vertigo warp) · <strong>Orbit:</strong> 360 Orbit, Arc L/R, Lazy Susan,
+        3D Rotation · <strong>Crane &amp; aerial:</strong> Crane Up/Down/Over-The-Head, Jib, Aerial Pullback,
+        Overhead, <strong>FPV Drone</strong>, Flying Cam · <strong>Pan &amp; tilt:</strong> Pan L/R, Whip Pan,
+        Tilt, <strong>Dutch Angle</strong>, Incline · <strong>Handheld &amp; rig:</strong> Handheld, Static,
+        Wiggle, <strong>Snorricam</strong> (body-locked), Robo Arm, BTS, Hero Cam, Glam, Head Tracking, Object
+        POV · <strong>Vehicle:</strong> Car Chasing, Car Grip, Buckle Up, Road Rush · <strong>FX:</strong>
+        Through Object In/Out, <strong>Bullet Time</strong>, Focus Change, Fisheye, Low Shutter ·
+        <strong>Time:</strong> Hyperlapse, Timelapse variants.</p>
+        <div class="callout">
+          <p><strong>The technique that actually works</strong> <span class="tag-d">D</span>: the preset sets the
+          motion engine, then <strong>repeat the move by name in the prompt text</strong> to reinforce it. Dual-naming
+          is the most repeatable approach — better than either alone. <strong>One primary move per ~5s clip.</strong>
+          Order: camera move → subject (concrete) → action → setting → lighting → lens/style → mood. When animating
+          a still, add "preserve the original face, lighting, and geometry."</p>
+        </div>
+      </div>
+
+      <div class="model">
+        <h3>Cinema Studio</h3>
+        <p class="role">The assembly environment</p>
+        <ul>
+          <li>Layered prompting <span class="tag-a">A</span>: (1) scene setup — location, time, weather;
+          (2) <strong>numbered shot breakdown</strong> with camera type per shot ("Shot 1: telephoto… Shot 2:
+          handheld tracking…"); (3) character action, blocking and dialogue; (4) technical specs — lens,
+          movement, lighting quality.</li>
+          <li>Hardware selectors: 5 camera profiles (ARRI/RED/IMAX), 11 lenses from 8–75mm.
+          <strong>Focal-length choice, not adjectives, is what makes it cinematic</strong> — telephoto compresses,
+          handheld shakes, wide gives context. <span class="tag-d">D</span></li>
+          <li>Lighting written contextually ("dusk sky," "warm tungsten," "silhouetted by sunset"), not as
+          parameters. Pacing inline ("0–4 seconds: …").</li>
+          <li>References via <code>@image</code> / <code>@video</code> tags <strong>in every prompt</strong>.
+          Character drift → character sheets plus tagged references every time. One camera move per shot.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============ PART 5 ============ -->
+    <div class="part" id="pipeline">
+      <h2>Part 5 — The consistent-character pipeline</h2>
+      <p class="lede">Putting all of it together, in the order that costs least.</p>
+      <ol>
+        <li><strong>Train a character ID</strong> for each main character (20–80 recent varied photos, at least
+        one full-body) — or design the character in stills first, then train from the approved set.</li>
+        <li><strong>Design keyframes as stills</strong> (FLUX.2, Nano Banana, Seedream, character via
+        <code>@Elements</code>). Iterate identity, composition and light at image prices before paying video
+        prices. This is the step most people skip and most regret skipping.</li>
+        <li><strong>Animate image-to-video</strong> — Seedance 2.5 for hero shots, Kling or Hailuo for drafts.
+        Prompt only motion, camera and audio. Use start/end frames (Kling, Wan) where shots must connect.</li>
+        <li><strong>Dialogue</strong> through Kling Omni Voice Binding, Wan Speak or LipSync Studio. Lines short,
+        speaker-labelled, clips under 30s.</li>
+        <li><strong>Fix, don't re-roll</strong> — Seedance region edit, Kling scene edit, one variable per retry.</li>
+        <li><strong>Finish:</strong> upscale (Iris for faces), then assemble.</li>
+      </ol>
+    </div>
+
+    <!-- ============ CTA ============ -->
+    <div class="signup" style="margin:52px 0 20px">
+      <h2>Publishing this to YouTube?</h2>
+      <p class="lede" style="margin-bottom:18px">Then there's a second problem waiting for you: YouTube requires
+      you to disclose realistic AI-generated content, and six months later you won't remember which of the 200
+      files in that project were AI-made. The disclosure checklist below is free too — three questions that tell
+      you whether <em>this</em> video needs the label, and the record to keep so you can prove it later.</p>
+      <div class="cta-row">
+        <a class="btn" href="ai-disclosure-checklist.html">Read the AI Disclosure Checklist →</a>
+        <a class="btn-ghost" href="content-id-defense-kit.html">Content ID Defense Kit →</a>
+      </div>
+    </div>
+
+    <!-- ============ PART 6 ============ -->
+    <div class="part" id="sources">
+      <h2>Part 6 — Sources</h2>
+      <p class="lede">Where to go deeper, and what I could not verify.</p>
+
+      <h3>Official platform documentation</h3>
+      <p class="srcs">Model chooser, Seedance 2.0 and 2.5 prompting guides, the Kling 3.0 user guide, Wan 2.5
+      text-to-audio, the Hailuo 2.3 creative guide, the lipsync guide, Cinema Studio 3.0, the camera-controls
+      page, Soul ID creation, Popcorn storyboards, Draw-to-Edit, and the Upscale playbook — all published on
+      <b>higgsfield.ai</b> under <code>/blog</code>, <code>/creator-hub/help-center</code> and
+      <code>/camera-controls</code>.</p>
+
+      <h3>Official model-maker documentation</h3>
+      <p class="srcs">
+        <b>Veo 3.1</b> and <b>Nano Banana</b> — the ultimate prompting guides on
+        <code>cloud.google.com/blog/products/ai-machine-learning</code> ·
+        <b>Wan</b> — <code>alibabacloud.com/help/en/model-studio/text-to-video-prompt</code> ·
+        <b>FLUX.2</b> — <code>docs.bfl.ml/guides/prompting_guide_flux2</code> ·
+        <b>GPT Image</b> — the image-gen prompting guide in the OpenAI cookbook ·
+        <b>Recraft</b> — <code>recraft.mintlify.app/prompt-engineering-guide</code> ·
+        <b>Kling Omni</b> — <code>kling.ai/quickstart</code>
+      </p>
+
+      <h3>Study material with real prompts</h3>
+      <p class="srcs">Higgsfield open-sourced the full prompts for their films <em>Hell Grind</em>,
+      <em>Zephyr</em> and <em>Mork</em>, with a 19-minute breakdown video — the single best study resource
+      available, because it's real production prompts rather than tutorial examples. Contest-winner workflow
+      breakdowns are published at <code>contest-workflows.higgsfield.app</code>.</p>
+
+      <h3>Community references</h3>
+      <p class="srcs">Kling 3.0 guides on <code>blog.fal.ai</code> and <code>videoai.me</code> · Seedance
+      formula on <code>tryonr.com</code> · Seedream on <code>fal.ai/learn</code> and
+      <code>runware.ai/docs</code> · Hailuo on <code>akool.com</code> · H3 on <code>minimax3.com</code> ·
+      camera cheat sheet on <code>memons.ai</code>.</p>
+
+      <div class="honest">
+        <h3>Known gaps — stated, not filled with guesses</h3>
+        <p>No official MiniMax H3 prompt documentation exists yet; all H3 guidance here is community-sourced.</p>
+        <p>ByteDance publishes no first-party English Seedream guide — host documentation is the best available.</p>
+        <p>Seedance 2.5's bracket delimiter audio syntax is community-reported. Verify it in the app.</p>
+        <p>No official doctrine exists for combining camera presets with prompt text — dual-naming is community
+        practice that works, not documented behaviour.</p>
+      </div>
+    </div>
+
+    <div class="part">
+      <h2>About this guide</h2>
+      <p>Published free by <strong>ZEROFAYYZ</strong>. Written by a working creator, not a vendor. Nothing here
+      is sponsored by or affiliated with any platform or model maker, and all product names and trademarks
+      belong to their respective owners.</p>
+      <p><strong>Share it.</strong> Copy it, quote it, repost it, feed it to your AI. Attribution appreciated,
+      not required.</p>
+      <p>Platform facts go stale fast. If you find something that's changed, say so — corrections make the next
+      version better.</p>
+    </div>
+  </article>
+
+  <footer>
+    <div>© 2026 ZEROFAYYZ · <a href="index.html">RightsVault</a> ·
+      <a href="ai-disclosure-checklist.html">AI Disclosure Checklist</a> ·
+      <a href="content-id-defense-kit.html">Content ID Defense Kit</a></div>
+    <div class="legal">Compiled from official documentation and open community sources, dated 2026-08-10.
+    Provided for informational purposes; verify against current official documentation before relying on any
+    of it. Not affiliated with, endorsed by, or sponsored by any platform or model maker named above.</div>
+  </footer>
+</div>
+
+<script>
+/* Signup attribution, first touch wins — same contract as the other pages.
+   Difference here: a visitor who lands on this guide with no identifiable source
+   is tagged "promptguide" rather than "direct", so guide-sourced waitlist signups
+   stay separable from direct outreach in the Gate A count. */
+(function(){
+  var K="zf_ref", q=new URLSearchParams(location.search);
+  var ref=q.get("ref")||q.get("utm_source");
+  if(!ref){ try{ ref=localStorage.getItem(K); }catch(e){} }
+  if(!ref&&document.referrer){
+    try{ var h=new URL(document.referrer).hostname.replace(/^www\./,"");
+         if(h&&h!==location.hostname) ref=h; }catch(e){}
+  }
+  ref=(ref||"promptguide").toString().slice(0,60);
+  try{ if(!localStorage.getItem(K)) localStorage.setItem(K,ref); }catch(e){}
+  document.querySelectorAll('a[href$=".html"]').forEach(function(a){
+    if(location.search) a.href+=location.search;
+  });
+})();
+</script>
+</body>
+</html>
