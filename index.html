@@ -31,6 +31,10 @@
   .lane .proof{margin-top:16px; padding-top:14px; border-top:1px solid var(--line-soft);
                color:var(--muted); font-size:13.5px; max-width:70ch}
   .lane .proof b{color:var(--text)}
+  .platform-shot{margin:34px 0 0; padding:0}
+  .platform-shot img{width:100%; height:auto; display:block; border-radius:var(--radius);
+                     border:1px solid var(--line)}
+  .platform-shot figcaption{color:var(--muted); font-size:13.5px; margin-top:12px; max-width:74ch}
   .nav{display:flex; flex-wrap:wrap; gap:18px; margin-top:14px}
   .nav a{color:var(--muted); text-decoration:none; font-size:14px; letter-spacing:.02em}
   .nav a:hover{color:var(--text)}
@@ -111,6 +115,21 @@
 </div>
 
 <div class="wrap">
+
+  <!-- The platform's own operations console. Belongs above the software section, not under
+       the headline where the 3D artwork used to sit. -->
+  <figure class="platform-shot">
+    <picture>
+      <source srcset="platform-hero.webp" type="image/webp">
+      <img src="platform-hero.jpg" width="1680" height="936" loading="lazy" decoding="async"
+           alt="Stylised operations console for the ZEROFAYYZ FINTECH platform: payment lifecycle from checkout to ledger, test suites, CI pipeline, system health and audit trail">
+    </picture>
+    <figcaption>
+      The platform's own surface — payment lifecycle, ledger, test suites, CI pipeline, system
+      health and the append-only audit trail. Every figure on it is real:
+      <a href="https://zerofayyz-fintech.vercel.app">see the live dashboard</a>.
+    </figcaption>
+  </figure>
 
   <section id="software" style="border-top:0">
     <h2>Software</h2>
