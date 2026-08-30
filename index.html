@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ZEROFAYYZ — game-ready 3D, AI video, and custom tools</title>
-<meta name="description" content="Game-ready 3D characters, environments and props for Unity, Unreal and Blender. AI-generated video and animated shorts. Custom tools and interfaces. Plus free guides for AI creators.">
+<title>Marcel Gilbert — Full-Stack Software Engineer | ZEROFAYYZ STUDIOS</title>
+<meta name="description" content="Full-stack software engineer building applications, APIs, cloud systems and AI-enabled software in TypeScript, Python and PostgreSQL. Deployed payments platform with public source. ZEROFAYYZ STUDIOS also builds 3D, creative technology and digital products.">
 <link rel="canonical" href="https://zerofayyz.com/">
-<meta property="og:title" content="ZEROFAYYZ — game-ready 3D, AI video, and custom tools">
-<meta property="og:description" content="Rigged characters and environment assets that arrive working in your engine. AI video production. Custom tools. Free guides for AI creators.">
+<meta property="og:title" content="Marcel Gilbert — Full-Stack Software Engineer | ZEROFAYYZ STUDIOS">
+<meta property="og:description" content="Applications, APIs, cloud systems and AI-enabled software — TypeScript, Python, PostgreSQL. A deployed payments platform you can click through, with public source.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zerofayyz.com/">
 <meta property="og:image" content="https://zerofayyz.com/social.jpg">
@@ -31,6 +31,17 @@
   .lane .proof{margin-top:16px; padding-top:14px; border-top:1px solid var(--line-soft);
                color:var(--muted); font-size:13.5px; max-width:70ch}
   .lane .proof b{color:var(--text)}
+  .nav{display:flex; flex-wrap:wrap; gap:18px; margin-top:14px}
+  .nav a{color:var(--muted); text-decoration:none; font-size:14px; letter-spacing:.02em}
+  .nav a:hover{color:var(--text)}
+  .stack{display:flex; flex-wrap:wrap; gap:7px; margin:14px 0 0}
+  .stack span{background:var(--panel-2); border:1px solid var(--line); border-radius:999px;
+              padding:4px 11px; font-size:12.5px; color:var(--muted)}
+  .case{margin-top:16px; padding-top:14px; border-top:1px solid var(--line-soft)}
+  .case dt{color:var(--cyan); font-size:11.5px; letter-spacing:.11em; text-transform:uppercase; margin-top:12px}
+  .case dd{margin:5px 0 0; color:#cfd6e6; font-size:14.5px; max-width:70ch}
+  .case dt:first-child{margin-top:0}
+  .secondary{opacity:.96}
   .guides{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-top:26px}
   .guide{display:block; background:var(--panel-2); border:1px solid var(--line); border-radius:var(--radius);
          padding:22px; text-decoration:none; transition:border-color .15s}
@@ -78,82 +89,179 @@
 
 <div class="wrap">
   <div class="masthead">
-    <span class="eyebrow">Digital production studio</span>
-    <h1>3D that arrives working.<br><span class="g">Video that gets made.</span></h1>
+    <span class="eyebrow">ZEROFAYYZ STUDIOS</span>
+    <h1>Marcel Gilbert<br><span class="g">Full-Stack Software Engineer</span></h1>
     <p class="sub">
-      Game-ready characters, environments and props for Unity, Unreal and Blender.
-      AI-generated video and animated shorts. Custom tools and interfaces.
+      I build applications, APIs, cloud systems and AI-enabled software — TypeScript, Python
+      and PostgreSQL — and I test them like it matters. Twenty-one years leading technical
+      teams in safety-critical aviation taught me that discipline; the deliverable is now code.
     </p>
     <div class="cta-row">
-      <a class="btn" href="#contact">Start a project →</a>
-      <a class="btn-ghost" href="#guides">Free guides for AI creators →</a>
+      <a class="btn" href="#software">See the software →</a>
+      <a class="btn-ghost" href="https://github.com/marcelgilbertdev-oss">GitHub →</a>
     </div>
+    <nav class="nav" aria-label="Sections">
+      <a href="#software">Software</a>
+      <a href="#creative">Creative technology &amp; 3D</a>
+      <a href="#guides">Free guides</a>
+      <a href="#products">Digital products</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 </div>
 
-<!-- Showcase strip: asset pipeline. The artwork is the content. -->
-<div class="art-band top" role="img" aria-label="A ZEROFAYYZ asset workstation: character rig with skeleton overlay, LOD variants, a modular environment, prop kit, PBR material spheres, texture maps, build dashboard and code"></div>
-
 <div class="wrap">
 
-  <section id="services" style="border-top:0">
-    <h2>What we do</h2>
-    <p class="lede">Three things, done properly, rather than everything done adequately.</p>
+  <section id="software" style="border-top:0">
+    <h2>Software</h2>
+    <p class="lede">Deployed, tested, and open to inspection. Every claim below has a link behind it.</p>
 
     <div class="lanes">
 
       <div class="lane">
-        <h3>Game-ready 3D</h3>
-        <p class="for">Characters · environments · props</p>
-        <p>The part of asset production that eats weeks: taking a mesh and making it something
-        your engine actually accepts. Rigged, skinned, animated, LOD'd, and <em>verified in the
-        target engine</em> — not handed over as a blend file with a shrug.</p>
-        <ul>
-          <li>Character rigging and skinning, including retargeting onto an existing skeleton</li>
-          <li>Named animation sets — locomotion, idles, actions — exported and parity-checked in engine</li>
-          <li>Environment assets and props, built to your game's scale and budget</li>
-          <li>LOD generation and export prep for Unity, Unreal or raw Blender</li>
-          <li>Companion and gameplay systems built around the character you're shipping</li>
-        </ul>
-        <div class="proof"><b>Why the engine check matters:</b> FBX export can silently corrupt IK
-        bones, and Blender's own importer will re-open the broken file looking correct. We learned
-        that the hard way, so every rig now ships with a parity test that runs in the engine. That's
-        the difference between an asset and an asset that works.</div>
-        <div class="proof"><b>Want a finished pack instead of custom work?</b> Our ready-made game
-        assets are published under <a href="https://zeroreignstudios.github.io/" rel="noopener">ZeroReign
-        Studios</a> — starting with <a href="https://zeroreignstudios.github.io/lanterntail.html" rel="noopener">LanternTail</a>,
-        a stylized creature pack with 31 animations, 16 colourways, swappable gear and 18 matching
-        props, built for Unity and Unreal.</div>
+        <h3>ZEROFAYYZ FINTECH — cloud payments &amp; operations platform</h3>
+        <p class="for">Live · source public · Stripe sandbox, no real funds move</p>
+        <p>
+          A payments platform built end to end and running in production: hosted Stripe
+          checkout, signature-verified webhooks, an auditable PostgreSQL ledger, refunds under
+          a four-eyes rule, and an operations console.
+        </p>
+        <dl class="case">
+          <dt>Problem</dt>
+          <dd>Payment systems fail quietly. A duplicate webhook double-credits an account, a
+          ledger drifts from the truth, and nothing alarms — the damage is discovered in a
+          reconciliation weeks later.</dd>
+          <dt>Architecture</dt>
+          <dd>One Fastify/TypeScript API over PostgreSQL, consumed <em>unmodified</em> by three
+          independent frontends — Next.js, Vue 3 and Svelte 5 — each validating every response
+          against one shared Zod contract at the network boundary. Bilingual, with translations
+          enforced by the type system: a missing string is a compile error.</dd>
+          <dt>What I built</dt>
+          <dd>Idempotency enforced by a database constraint rather than application branching,
+          so a redelivered webhook is refused under concurrency and across restarts. An
+          append-only audit log the application itself cannot rewrite, enforced by a database
+          trigger. Refunds that move the ledger only on the provider's signed event. An
+          independent reconciler in Go — a checker sharing code with the thing it checks agrees
+          with its bugs.</dd>
+          <dt>Testing &amp; operations</dt>
+          <dd>341 automated tests across ten suites in ten CI jobs, including thirteen
+          Cucumber scenarios that state the payment rules in plain language and execute. A QA
+          surface an AI agent can drive over the Model Context Protocol. Monitored hourly in
+          production by a 30-check suite whose webhook probe signs a real event — because a
+          health endpoint reports that a signing secret is <em>present</em>, never that it is
+          <em>correct</em>. I broke that secret deliberately to watch the alert fire, then
+          restored it.</dd>
+          <dt>The defect worth citing</dt>
+          <dd>The webhook handler had nineteen passing unit tests and had never once worked.
+          Every test replaced the database with a stand-in, so none executed the real SQL — and
+          the SQL was invalid. The first integration test against real PostgreSQL found it
+          immediately. A test suite has a shape, and defects collect where that shape does not
+          reach.</dd>
+        </dl>
+        <div class="stack">
+          <span>TypeScript</span><span>Node · Fastify</span><span>PostgreSQL</span><span>Next.js</span>
+          <span>Vue 3</span><span>Svelte 5</span><span>Go</span><span>Stripe</span><span>Zod</span>
+          <span>Playwright</span><span>Cucumber</span><span>Docker</span><span>GitHub Actions</span>
+        </div>
+        <p class="proof">
+          <b>Try it:</b> <a href="https://zerofayyz-fintech.vercel.app">zerofayyz-fintech.vercel.app</a>
+          — click through in three minutes, everything is sandbox and safe to touch ·
+          <a href="https://github.com/marcelgilbertdev-oss/zerofayyz-fintech">source and thirteen decision records</a>
+        </p>
       </div>
 
       <div class="lane">
-        <h3>AI video &amp; animated shorts</h3>
-        <p class="for">Production · direction · narration</p>
-        <p>Short-form animated and AI-generated video, produced end to end. Model selection is most
-        of the craft — the same prompt gives you a usable shot on one model and garbage on another,
-        and knowing which is which is the job.</p>
-        <ul>
-          <li>Concept through finished cut, with characters that stay consistent across shots</li>
-          <li>Image-to-video pipelines using the right model per shot, not one tool for everything</li>
-          <li>Voice and narration, including custom voice creation</li>
-          <li>Assembly, grade and delivery in the format your platform wants</li>
-        </ul>
-        <div class="proof"><b>Public proof:</b> the model-by-model prompting reference on this site
-        is ours — <a href="ai-video-prompting-guide.html">~15 image and video models compared side by
-        side</a>, free and open. It's the working knowledge behind the production work.</div>
+        <h3>Gabriel — desktop-class AI workstation platform</h3>
+        <p class="for">Built solo · private repository</p>
+        <p>
+          A single React interface over conversational AI, local image generation,
+          image-to-3D mesh conversion, voice synthesis, an animation studio, Blender and Unity
+          integration, and a system-health lane that can inspect and repair the machine it runs on.
+        </p>
+        <dl class="case">
+          <dt>Scale</dt>
+          <dd>~24,000 lines of strict TypeScript and React 19 across 20 feature panels, over a
+          Python and FastAPI backend of 39 REST endpoints with job orchestration and
+          cancellation. Roughly 9,300 automated tests; 1,180+ commits.</dd>
+          <dt>The principle it is built on</dt>
+          <dd>Every operation that changes state writes an auditable record, and operations are
+          allowlisted, sandboxed and reversible. A system that acts on a real machine should be
+          <em>verifiable, not trusted</em>.</dd>
+        </dl>
+        <div class="stack">
+          <span>React 19</span><span>TypeScript</span><span>Python</span><span>FastAPI</span>
+          <span>Local LLM inference</span><span>RAG · embeddings</span><span>MCP servers</span>
+        </div>
       </div>
 
       <div class="lane">
-        <h3>Custom tools &amp; interfaces</h3>
-        <p class="for">Internal tools · dashboards · prototypes</p>
-        <p>Software for the job nobody makes software for. Built to be used by the person who asked
-        for it, rather than to demo well and fall over in week two.</p>
-        <ul>
-          <li>Internal tools and dashboards that fit a workflow you already have</li>
-          <li>Web interfaces and working prototypes</li>
-          <li>Pipeline and automation tooling for studios and solo creators</li>
-          <li>AI integration into tools you already run</li>
-        </ul>
+        <h3>fair-scan — a retrieval bug, extracted and fixed in public</h3>
+        <p class="for">Python · MIT · open source</p>
+        <p>
+          A two-phase fair scan over a grouped document corpus, where group order never decides
+          the result. Extracted from Gabriel's retrieval layer after I found a defect that made
+          search answer confidently from the wrong source — no error, no empty result, just
+          wrong, with a whole category of documents quietly unreachable.
+        </p>
+        <p class="proof">
+          The repository keeps the <b>original broken implementation next to the fix</b> and runs
+          both on the same corpus, so you can watch it fail and then pass. Ten hermetic tests,
+          zero dependencies, CI on three Python versions ·
+          <a href="https://github.com/marcelgilbertdev-oss/fair-scan">github.com/marcelgilbertdev-oss/fair-scan</a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</div><!-- /wrap -->
+
+<!-- The 3D showcase belongs with the 3D work, not under the engineering headline. -->
+<div class="art-band top" role="img" aria-label="A ZEROFAYYZ asset workstation: character rig with skeleton overlay, LOD variants, a modular environment, prop kit, PBR material spheres, texture maps, build dashboard and code"></div>
+
+<div class="wrap">
+
+  <section id="creative" class="secondary">
+    <h2>Creative technology &amp; 3D</h2>
+    <p class="lede">
+      The same engineering applied to content pipelines. Tooling exists here because doing the
+      work by hand did not scale — which is the reason to write any tool.
+    </p>
+
+    <div class="lanes">
+
+      <div class="lane">
+        <h3>Asset pipelines &amp; game-ready 3D</h3>
+        <p class="for">Blender · Python (bpy) · Unity · Unreal</p>
+        <p>
+          Character rigging and skinning including retargeting onto an existing skeleton, named
+          animation sets, LOD generation and export prep — automated with Blender Python I wrote,
+          including a repeatable rig-transplant procedure that retargets a validated armature
+          onto new meshes.
+        </p>
+        <p class="proof">
+          <b>Why the engine check matters:</b> FBX export can silently corrupt IK bones, and
+          Blender's own importer will re-open the broken file looking correct. So every rig now
+          ships with a parity test that runs in the target engine. That is the difference between
+          an asset and an asset that works — and it is the same instinct as the integration test
+          that caught the webhook bug above.
+        </p>
+      </div>
+
+      <div class="lane">
+        <h3>Generative media pipelines</h3>
+        <p class="for">Image · image-to-3D · video · voice</p>
+        <p>
+          Local SDXL and FLUX image generation, image-to-3D mesh conversion, local video models
+          and TTS voice synthesis, assembled through an ffmpeg pipeline into finished animated
+          shorts. Model selection is most of the craft: the same prompt gives a usable shot on
+          one model and garbage on another.
+        </p>
+        <p class="proof">
+          <b>Public proof:</b> the model-by-model prompting reference on this site is mine —
+          around fifteen image and video models compared side by side, free and open. It is the
+          working knowledge behind the production work.
+        </p>
       </div>
 
     </div>
@@ -161,7 +269,7 @@
 
   <section id="guides">
     <h2>Free guides</h2>
-    <p class="lede">Written because they didn't exist and we needed them. No signup, no email gate,
+    <p class="lede">Written because they did not exist and I needed them. No signup, no email gate,
     no upsell — read them, share them, feed them to your AI.</p>
 
     <div class="guides">
@@ -192,29 +300,48 @@
 <div class="wrap">
 
   <section id="products">
-    <h2>Products</h2>
-    <p class="lede">Tools and assets we're building to sell, rather than build to order. Nothing gets
-    listed here until it exists and works — no pre-orders, and no launch dates we can't keep. The
-    guides above are free and stay free.</p>
+    <h2>Digital products</h2>
+    <p class="lede">Things ZEROFAYYZ STUDIOS builds to sell, rather than build to order. Nothing is
+    listed until it exists and works — no pre-orders, and no launch dates that cannot be kept.</p>
+
+    <div class="guides">
+      <a class="guide" href="https://zeroreignstudios.github.io/">
+        <b>LanternTail — stylized creature pack</b>
+        <span>A game-ready character with 31 animations, 16 colourways, swappable gear and 18
+        matching props, built for Unity and Unreal. Published under ZeroReign Studios.</span>
+      </a>
+      <a class="guide" href="#guides">
+        <b>Free guides for AI creators</b>
+        <span>Three reference works on prompting, AI disclosure and Content ID — free, no signup,
+        and they stay that way. Read them below.</span>
+      </a>
+    </div>
+
+    <p class="proof" style="margin-top:22px">
+      <b>In development:</b> developer tooling and 3D asset packs. They appear here when they
+      ship, not before.
+    </p>
   </section>
 
   <section id="contact">
     <div class="contact">
-      <h2>Start a project</h2>
-      <p class="lede" style="margin-bottom:6px">Email is the fastest way in. It reaches a person, not
-      a queue, and you'll get a straight answer about whether it's a good fit — including when it
-      isn't.</p>
+      <h2>Get in touch</h2>
+      <p class="lede" style="margin-bottom:6px">Email reaches a person, not a queue, and you will
+      get a straight answer about whether something is a good fit — including when it is not.</p>
 
-      <p style="margin:0; color:var(--muted); font-size:14px">Useful to include:</p>
+      <p style="margin:0; color:var(--muted); font-size:14px">Whether you are:</p>
       <ul class="tellme">
-        <li>What you're building, and what you need from us</li>
-        <li>Target engine or platform, if there is one</li>
-        <li>Rough timeline</li>
-        <li>Anything that already exists — references, meshes, a script, a project file</li>
+        <li><b>Hiring</b> — I am open to full-time software engineering roles, remote worldwide
+        or Japan-based, and my CV and work history are on
+        <a href="https://github.com/marcelgilbertdev-oss">GitHub</a></li>
+        <li><b>Commissioning software</b> — applications, APIs, cloud systems, AI integration,
+        automation, debugging and test infrastructure</li>
+        <li><b>Commissioning 3D or creative technology</b> — say which engine and what already
+        exists</li>
       </ul>
 
       <div class="cta-row">
-        <a class="btn" href="mailto:marcel.gilbert.dev@gmail.com?subject=Project%20enquiry%20%E2%80%94%20ZEROFAYYZ&amp;body=What%20I%27m%20building%3A%0A%0AWhat%20I%20need%3A%0A%0AEngine%20%2F%20platform%3A%0A%0ATimeline%3A%0A%0AWhat%20already%20exists%3A%0A%0A">Email us →</a>
+        <a class="btn" href="mailto:marcel.gilbert.dev@gmail.com?subject=Enquiry%20%E2%80%94%20ZEROFAYYZ&amp;body=What%20I%27m%20building%3A%0A%0AWhat%20I%20need%3A%0A%0AEngine%20%2F%20platform%3A%0A%0ATimeline%3A%0A%0AWhat%20already%20exists%3A%0A%0A">Email me →</a>
         <span class="btn-note mail">marcel.gilbert.dev@gmail.com</span>
       </div>
     </div>
