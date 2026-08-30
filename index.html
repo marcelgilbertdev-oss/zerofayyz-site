@@ -121,7 +121,9 @@
   <figure class="platform-shot">
     <picture>
       <source srcset="platform-hero.webp" type="image/webp">
-      <img src="platform-hero.jpg" width="1680" height="936" loading="lazy" decoding="async"
+      <!-- Eager, high priority: this sits inside the first viewport, so lazy-loading it left
+           an empty bordered box in the first impression and hurt LCP. -->
+      <img src="platform-hero.jpg" width="1680" height="936" loading="eager" fetchpriority="high" decoding="async"
            alt="Stylised operations console for the ZEROFAYYZ FINTECH platform: payment lifecycle from checkout to ledger, test suites, CI pipeline, system health and audit trail">
     </picture>
     <figcaption>
