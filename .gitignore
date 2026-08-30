@@ -1,0 +1,8 @@
+.DS_Store
+
+# Source artwork and the briefs used to generate it. The site ships the derived
+# capability-hero.jpg/.webp; the 2 MB PNGs and the working notes stay local.
+background*.png
+zerofbackground.png
+*_PROMPT.md
+*_PROMPT_V*.md

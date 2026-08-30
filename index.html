@@ -35,6 +35,13 @@
   .platform-shot img{width:100%; height:auto; display:block; border-radius:var(--radius);
                      border:1px solid var(--line)}
   .platform-shot figcaption{color:var(--muted); font-size:13.5px; margin-top:12px; max-width:74ch}
+  /* Self-hosted, not embedded from a video platform: no player branding, and nothing
+     suggests a competitor's work once it ends. preload=none so it costs nothing until
+     someone presses play. */
+  .demo-clip{margin:26px 0 0; padding:0}
+  .demo-clip video{width:100%; height:auto; display:block; border-radius:var(--radius);
+                   border:1px solid var(--line); background:#07110f}
+  .demo-clip figcaption{color:var(--muted); font-size:13.5px; margin-top:12px; max-width:74ch}
   .nav{display:flex; flex-wrap:wrap; gap:18px; margin-top:14px}
   .nav a{color:var(--muted); text-decoration:none; font-size:14px; letter-spacing:.02em}
   .nav a:hover{color:var(--text)}
@@ -66,22 +73,9 @@
   .masthead h1{margin-bottom:14px}
   .masthead .sub{max-width:58ch; margin-bottom:22px}
 
-  /* Showcase strips. Nothing sits on top of them — the artwork is the content. */
-  .art-band{position:relative; overflow:hidden; height:clamp(300px,34vw,520px);
-            background-size:cover; background-repeat:no-repeat}
-  .art-band.top{background-image:url("hero-bg.jpg"); background-position:52% 46%}
-  .art-band.lower{background-image:url("band-bg.jpg"); background-position:50% 46%}
-  .art-band::after{
-    content:""; position:absolute; inset:0; pointer-events:none;
-    background:linear-gradient(180deg, var(--bg) 0%, rgba(8,10,18,.08) 14%,
-                                       rgba(8,10,18,.08) 86%, var(--bg) 100%);
-  }
 
   @media (max-width:720px){
     .masthead{padding:22px 0 30px}
-    .art-band{height:220px}
-    .art-band.top{background-position:56% 46%}
-    .art-band.lower{background-position:56% 48%}
   }
 </style>
 </head>
@@ -130,6 +124,20 @@
       The platform's own surface — payment lifecycle, ledger, test suites, CI pipeline, system
       health and the append-only audit trail. Every figure on it is real:
       <a href="https://zerofayyz-fintech.vercel.app">see the live dashboard</a>.
+    </figcaption>
+  </figure>
+
+  <figure class="demo-clip">
+    <video controls preload="none" poster="platform-hero.jpg" width="1440" height="900"
+           aria-label="Sixty-nine second walkthrough of the payment lifecycle">
+      <source src="platform-demo.mp4" type="video/mp4">
+      Your browser cannot play this video.
+      <a href="https://zerofayyz-fintech.vercel.app">Open the live dashboard instead</a>.
+    </video>
+    <figcaption>
+      Sixty-nine seconds, start to finish: a payment through hosted checkout, the signed
+      webhook returning, the ledger updating, and the audit trail recording it. Recorded by the
+      same Playwright suite that tests the platform; the narration is a synthesised voice.
     </figcaption>
   </figure>
 
@@ -285,10 +293,23 @@
 
 </div><!-- /wrap -->
 
-<!-- The 3D showcase belongs with the 3D work, not under the engineering headline. -->
-<div class="art-band top" role="img" aria-label="A ZEROFAYYZ asset workstation: character rig with skeleton overlay, LOD variants, a modular environment, prop kit, PBR material spheres, texture maps, build dashboard and code"></div>
-
 <div class="wrap">
+
+  <!-- Capability spread: the range of work in one frame. Shown as a constrained figure rather
+       than the old full-bleed band, because a short wide band cropped away roughly 40% of the
+       panels — and the panels are the entire point of this image. -->
+  <figure class="platform-shot">
+    <picture>
+      <source srcset="capability-hero.webp" type="image/webp">
+      <img src="capability-hero.jpg" width="1672" height="941" loading="lazy" decoding="async"
+           alt="Stylised workstation showing the range of work: a web application dashboard, an API console, a 3D viewport with a rigged character, AI video generation, an automation pipeline, a CI pipeline and an append-only audit trail">
+    </picture>
+    <figcaption>
+      The range in one frame — web applications and APIs, 3D and video pipelines, automated
+      testing and CI. Illustrative of the kind of work, not a screenshot of a single product.
+    </figcaption>
+  </figure>
+
 
   <section id="creative" class="secondary">
     <h2>Creative technology &amp; 3D</h2>
