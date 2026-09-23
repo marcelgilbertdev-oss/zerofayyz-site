@@ -138,3 +138,23 @@ ul.who li{padding-left:26px; position:relative; color:var(--muted); max-width:70
 ul.who li::before{content:"→"; position:absolute; left:0; color:var(--purple)}
 ul.who b{color:var(--text)}
 #waitlist{border-bottom:0}
+
+/* masthead: copy left, artwork right. Single column below 1000px so the headline keeps
+   the full measure on a phone -- the art is decorative and drops out entirely there. */
+/* The hero gets its own, wider measure. The reading sections stay at --maxw (980px) because
+   long prose at 1300px is hard to read -- but a masthead capped at 980 on a 1478px screen just
+   looks like the page ran out, which is exactly what it looked like. */
+.masthead-wrap{max-width:1320px; margin:0 auto; padding:0 22px}
+.masthead{display:grid; grid-template-columns:1fr; gap:34px; align-items:center}
+.masthead-art{display:none; margin:0}
+@media (min-width:1000px){
+  .masthead{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:48px}
+  .masthead-art{display:block; position:relative}
+  .masthead-art img{width:100%; height:auto; display:block; border-radius:16px;
+    border:1px solid rgba(150,110,255,.22);
+    box-shadow:0 24px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(0,0,0,.4) inset}
+  /* fade the artwork into the page so it reads as part of the hero, not a pasted screenshot */
+  .masthead-art::after{content:""; position:absolute; inset:0; border-radius:16px; pointer-events:none;
+    background:linear-gradient(90deg, var(--bg) 0%, rgba(0,0,0,0) 26%),
+               linear-gradient(0deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 40%)}
+}
